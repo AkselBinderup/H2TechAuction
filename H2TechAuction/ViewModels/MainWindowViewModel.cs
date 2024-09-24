@@ -1,9 +1,32 @@
-﻿namespace H2TechAuction.ViewModels
+﻿using Avalonia.Controls;
+using H2TechAuction.Views;
+using System.Windows.Input;
+using System.Reactive;
+using ReactiveUI;
+
+namespace H2TechAuction.ViewModels
 {
     public partial class MainWindowViewModel : ViewModelBase
     {
-#pragma warning disable CA1822 // Mark members as static
-        public string Greeting => "Welcome to Avalonia!";
-#pragma warning restore CA1822 // Mark members as static
+        private ViewModelBase _contentViewModel;
+
+        public ViewModelBase ContentViewModel
+        {
+            get => _contentViewModel;
+            private set => this.RaiseAndSetIfChanged(ref _contentViewModel, value);
+        }
+
+        public void SetViewModel(ViewModelBase model)
+        {
+            ContentViewModel = model;
+        }
+
+        public static MainWindowViewModel? Instance { get; private set; }
+        public MainWindowViewModel()
+        {
+            if (Instance == null) Instance = this;
+            SetViewModel(new LoginViewModel());
+
+        }
     }
 }

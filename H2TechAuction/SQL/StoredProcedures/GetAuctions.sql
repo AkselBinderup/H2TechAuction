@@ -1,0 +1,15 @@
+﻿DROP PROCEDURE IF EXISTS GetActiveAuctions;
+
+GO;
+
+CREATE PROCEDURE GetActiveAuctions
+AS
+BEGIN;
+
+SET NOCOUNT ON
+
+SELECT * FROM Auctions WHERE IsActive = 1
+
+SET NOCOUNT OFF
+
+END;
