@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace H2TechAuction.Models
 {
-    internal class User
+    abstract class User
     {
         public int Id { get; }
         public string Username { get; set; }

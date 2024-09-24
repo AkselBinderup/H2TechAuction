@@ -9,7 +9,6 @@ namespace H2TechAuction.Models
 {
     public partial class Database
     {
-        public static Database instance = new();
 
         private readonly string connectionString;
         private readonly SqlConnection conn;
@@ -25,9 +24,5 @@ namespace H2TechAuction.Models
             conn = new SqlConnection(connectionString);
         }
 
-        public void CreateAuction()
-        {
-
-        }
     }
 }
