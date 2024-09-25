@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace H2TechAuction.Models
 {
-    internal class CorporateUser : User
-    {
-        public decimal credit {  get; set; }
-        public string cvrNumber { get; }
+    //internal class CorporateUser : User
+    //{
+    //    public decimal credit {  get; set; }
+    //    public string cvrNumber { get; }
 
-        public CorporateUser(decimal credit, string cvrNumber)
-        {
-            this.credit = credit;
-            this.cvrNumber = cvrNumber;
+    //    public CorporateUser(decimal credit, string cvrNumber)
+    //    {
+    //        this.credit = credit;
+    //        this.cvrNumber = cvrNumber;
 
-            //DB createCorporateUser
-        }
-    }
+    //        //DB createCorporateUser
+    //    }
+    //}
 }

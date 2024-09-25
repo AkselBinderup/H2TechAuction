@@ -5,6 +5,6 @@ public class PrivatePassengerCar
     //DB
     public override string ToString()
     {
-        return "";
+        return "base.ToString()";
     }
 }

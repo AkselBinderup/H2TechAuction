@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace H2TechAuction.Models
 {
-    abstract class User
-    {
-        public int Id { get; }
-        public string Username { get; set; }
+    //abstract class User
+    //{
+    //    public int Id { get; }
+    //    public string Username { get; set; }
 
-        public string Password { get; set; }
+    //    public string Password { get; set; }
 
-        public string Zipcode { get; set; }
+    //    public string Zipcode { get; set; }
 
 
-    }
+    //}
 }
