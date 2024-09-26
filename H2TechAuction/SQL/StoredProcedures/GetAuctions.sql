@@ -3,12 +3,17 @@
 GO;
 
 CREATE PROCEDURE GetActiveAuctions
+(
+	@SearchText			NVARCHAR(100) = ''
+)
 AS
 BEGIN;
 
 SET NOCOUNT ON
 
-SELECT * FROM Auctions WHERE IsActive = 1
+SELECT TOP 20
+	FROM Auctions AS a
+	LEFT JOIN Base AS b ON a.BaseId = b.Id
 
 SET NOCOUNT OFF
 

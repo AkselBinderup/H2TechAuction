@@ -1,5 +1,4 @@
 ﻿CREATE TABLE Base( 
 	Id INT PRIMARY KEY IDENTITY(1,1),
 	CreatedAt	DATETIME DEFAULT GETUTCDATE(),
-	UpdatedAt	DATETIME,
-	CreatedBy	INT	);
+	UpdatedAt	DATETIME	);

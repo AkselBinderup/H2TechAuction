@@ -16,10 +16,10 @@ namespace H2TechAuction.Models
         {
             SqlConnectionStringBuilder sb = new();
             sb.Clear();
-            sb.DataSource = "sql.itcn.dk";
-            sb.InitialCatalog = "jani7.SKOLE";
-            sb.UserID = "jani7.SKOLE";
-            sb.Password = "g3t0He1D5K";
+            sb.DataSource = "h2sql.cloudprog.org";
+            sb.InitialCatalog = "H2TechAuction";
+            sb.UserID = "";
+            sb.Password = "";
             connectionString = sb.ToString();
             conn = new SqlConnection(connectionString);
         }

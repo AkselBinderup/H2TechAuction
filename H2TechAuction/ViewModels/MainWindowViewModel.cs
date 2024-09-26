@@ -3,6 +3,7 @@ using H2TechAuction.Views;
 using System.Windows.Input;
 using System.Reactive;
 using ReactiveUI;
+using System.Diagnostics;
 
 namespace H2TechAuction.ViewModels
 {
