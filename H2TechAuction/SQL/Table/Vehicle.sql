@@ -11,6 +11,7 @@
 		FuelEconomy Int,
 		FuelCapacity Int,
 		EnergyClass Int NOT NULL DEFAULT 1,
+		Discriminator NVARCHAR(50),
 		FOREIGN KEY (LicenseType) references LicenseType (Id),
 		FOREIGN KEY (EnergyClass) references EnergyClass (Id));
 

@@ -13,8 +13,9 @@ BEGIN
 
 DECLARE @sql Text
 
---SET @username = 'mitBrugernavn'
-SET @sql = 'CREATE LOGIN ' + @username + ' WITH PASSWORD = ''' + @Password + ''', DEFAULT_DATABASE='+@username+' , CHECK_POLICY = OFF;'
+SET @sql = 'CREATE User ' + @username + ' WITH PASSWORD = ''' + @Password + ''', DEFAULT_DATABASE='+@username+' , CHECK_POLICY = OFF;'
 EXEC @sql;
+
+
 end
 GO;
