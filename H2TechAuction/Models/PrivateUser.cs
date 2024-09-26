@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace H2TechAuction.Models
 {
-    internal class PrivateUser : User
+    internal class PrivateUser : UserTemp
     {
         public string cprNumber { get; }
 

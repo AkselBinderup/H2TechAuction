@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace H2TechAuction.Models
 {
-    //internal class CorporateUser : User
+    //internal class CorporateUser : UserTemp
     //{
     //    public decimal credit {  get; set; }
     //    public string cvrNumber { get; }

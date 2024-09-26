@@ -8,14 +8,20 @@ using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.AuctionModels;
 
-public class Auction(Vehicle? vehicle, User? seller, ulong minAmount)
+public class Auction
 {
     public uint AuctionId { get; set; }
-    public Vehicle? Vehicle { get; set; } = vehicle;
-    public User? Seller { get; set; } = seller;
-    public ulong MinimumAmount { get; set; } = minAmount;
+    public Vehicle? Vehicle { get; set; }
+    public User? Seller { get; set; } 
+    public ulong MinimumAmount { get; set; } 
 
-    public static Auction SetForSale(Vehicle? vehicle, User? seller, ulong minAmount)
+    public Auction(Vehicle? vehicle, User? seller, ulong minAmount)
+    {
+        Vehicle = vehicle;
+        Seller = seller;
+        MinimumAmount = minAmount;
+    }
+    public Auction SetForSale(Vehicle? vehicle, User? seller, ulong minAmount)
     {
         return new Auction(vehicle, seller, minAmount);
     }
