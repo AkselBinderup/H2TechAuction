@@ -23,8 +23,5 @@ public class Truck : HeavyVehicle
     {
         LicenseType = GetLicenseType();
     }
-    public override string ToString()
-    {
-        return "";
-    }
+    public override string ToString() => "";
 }

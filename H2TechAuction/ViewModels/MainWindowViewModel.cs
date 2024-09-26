@@ -1,9 +1,4 @@
-﻿using Avalonia.Controls;
-using H2TechAuction.Views;
-using System.Windows.Input;
-using System.Reactive;
-using ReactiveUI;
-using System.Diagnostics;
+﻿using ReactiveUI;
 
 namespace H2TechAuction.ViewModels
 {
@@ -16,18 +11,15 @@ namespace H2TechAuction.ViewModels
             get => _contentViewModel;
             private set => this.RaiseAndSetIfChanged(ref _contentViewModel, value);
         }
-
         public void SetViewModel(ViewModelBase model)
         {
             ContentViewModel = model;
         }
-
         public static MainWindowViewModel? Instance { get; private set; }
         public MainWindowViewModel()
         {
             if (Instance == null) Instance = this;
-            SetViewModel(new LoginViewModel());
-
+            SetViewModel(new LoginScreenViewModel());
         }
     }
 }
