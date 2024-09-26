@@ -27,13 +27,13 @@ public class HomeScreenViewModel : ViewModelBase
     }
     public HomeScreenViewModel()
     {
-        YourAuctions = new ObservableCollection<AuctionItemModel>
+        _yourAuctions = new ObservableCollection<AuctionItemModel>
             {
                 new AuctionItemModel { Name = "Ford Escort", Year = "1983", Bid = "3.000" },
                 new AuctionItemModel { Name = "Tesla Model 3", Year = "2016", Bid = "3.000" }
             };
 
-        CurrentAuctions = new ObservableCollection<AuctionItemModel>
+        _currentAuctions = new ObservableCollection<AuctionItemModel>
             {
                 new AuctionItemModel { Name = "Ford Escort", Year = "1983", Bid = "3.000" },
                 new AuctionItemModel { Name = "Tesla Model 3", Year = "2016", Bid = "3.000" },
