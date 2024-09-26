@@ -1,7 +1,6 @@
 ﻿CREATE TABLE Vehicle ( 
 		Id INT PRIMARY KEY IDENTITY (1,1),
-		Maker VARCHAR(25),
-		Model VARCHAR(25),
+		Name	NVARCHAR(100),
 		Odometer Int,
 		LicensePlate VARCHAR(15),
 		ModelYear Int,
