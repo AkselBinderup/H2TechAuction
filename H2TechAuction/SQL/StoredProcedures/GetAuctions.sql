@@ -12,8 +12,9 @@ BEGIN;
 SET NOCOUNT ON
 
 SELECT TOP 20
+	a.AskingPrice
 	FROM Auctions AS a
-	LEFT JOIN Base AS b ON a.BaseId = b.Id
+	LEFT Vehicle AS v ON a.VehicleId = v.Id
 
 SET NOCOUNT OFF
 

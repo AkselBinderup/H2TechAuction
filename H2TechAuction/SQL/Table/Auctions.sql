@@ -6,4 +6,5 @@
 		AskingPrice		Decimal,
 		CurrentBid		Decimal,
 		BaseId			INT,
-		IsActive		Bit);
+		IsActive		Bit
+);
