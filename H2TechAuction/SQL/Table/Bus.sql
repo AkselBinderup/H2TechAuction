@@ -3,5 +3,5 @@
 		SeatingCapacity Int,
 		SleepingCapacity Int,
 		ToiletAvailable Bit,
-		VehicleId INT,
-		FOREIGN KEY (VehicleId) REFERENCES Vehicle(Id));
+		HeavyVehicleId INT,
+		FOREIGN KEY (HeavyVehicleId) REFERENCES HeavyVehicle(Id));

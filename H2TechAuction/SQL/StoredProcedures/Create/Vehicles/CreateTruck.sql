@@ -1,8 +1,8 @@
-﻿DROP PROCEDURE IF EXISTS CreateBus
+﻿DROP PROCEDURE IF EXISTS CreateTruck
 
 GO;
 
-CREATE PROCEDURE CreateBus(
+CREATE PROCEDURE CreateTruck(
 		@HV_Weight	Decimal,
 		@HV_Height	Decimal,
 		@HV_Length	Decimal,
@@ -17,9 +17,7 @@ CREATE PROCEDURE CreateBus(
 		@V_Discriminator	NVARCHAR(50),
 		@V_EnergyClass	NVARCHAR(10),
 		@V_LicenseType	NVARCHAR(10),
-		@SeatingCapacity	INT,
-		@SleepingCapacity	INT,
-		@ToiletAvailable	Bit
+		@LoadCapacity	Decimal
 )
 AS
 BEGIN
@@ -35,7 +33,7 @@ INSERT INTO HeavyVehicle (Weight, Height, Length, VehicleId) VALUES (@HV_Weight,
 DECLARE @HeavyVehicleId INT
 SET @HeavyVehicleId = SCOPE_IDENTITY()
 
-INSERT INTO Bus (SeatingCapacity, SleepingCapacity, ToiletAvailable) VALUES (@SeatingCapacity, @SleepingCapacity, @ToiletAvailable)
+INSERT INTO Truck (LoadCapacity, HeavyVehicleId) VALUES (@LoadCapacity, @HeavyVehicleId)
 
 
 END;
