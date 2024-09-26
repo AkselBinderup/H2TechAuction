@@ -18,15 +18,15 @@
 		<TextBox Watermark="Password"
 				 Text="{Binding Password}"/>
 		<Grid ColumnDefinitions="*,*">
-			<Button Grid.Column="0"
-					Content="Register"
-					Foreground="White"
-					Background="#2196F3"
-					HorizontalAlignment="Stretch"/>
+			<Label Content="Not Registered?"/>
+			<HyperlinkButton Content="Create User" Grid.Column="1"/>
+		</Grid>
+		<Grid ColumnDefinitions="*,*">
+			
 			<Button Grid.Column="1"
 					Content="Login"
 					Foreground="White"
-					Background="#0D47A1"
+					Background="#4CAF50"
 					HorizontalAlignment="Stretch"/>
 		</Grid>
 

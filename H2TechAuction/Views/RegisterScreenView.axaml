@@ -15,14 +15,26 @@
 			FontFamily="" Width="300"
 			TextAlignment="Center"
 			Text="Register"/>
-		<TextBox Watermark="Enter Username"
+		<TextBox Watermark="Username"
 				 Text="{Binding Username}"/>
-		<TextBox Watermark="Enter Password"
+		<TextBox Watermark="Password"
 				 Text="{Binding Password}"/>
-		<TextBox Watermark="Re-Enter Password"
+		<TextBox Watermark="Password again"
 				 Text="{Binding Password}"/>
-		<Grid ColumnDefinitions="*">
-			
+
+		<Grid ColumnDefinitions="*,*">
+			<RadioButton Grid.Column="0"
+						 Content="Corporate"/>
+			<RadioButton Grid.Column="1"
+						 Content="Private"
+						 IsChecked="True"/>
+		</Grid>
+		<Grid ColumnDefinitions="*, *">
+			<Button Content="Cancel" 
+					Grid.Column="0"
+					HorizontalAlignment="Stretch"
+					
+					/>
 			<Button Grid.Column="1"
 					Content="Create Account"
 					Foreground="White"

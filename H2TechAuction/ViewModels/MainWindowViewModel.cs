@@ -19,7 +19,7 @@ namespace H2TechAuction.ViewModels
         public MainWindowViewModel()
         {
             if (Instance == null) Instance = this;
-            SetViewModel(new LoginScreenViewModel());
+            SetViewModel(new HomeScreenViewModel());
         }
     }
 }
