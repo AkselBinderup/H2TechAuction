@@ -15,10 +15,7 @@ public abstract class User : IUser
     public string? Discriminator { get; set; }
     public int BaseId { get; set; }
     //public Base? Base { get; set; }
-
-    public User()
-    {
-    }
+    public User(){}
     public override string ToString()
     {
         return base.ToString();

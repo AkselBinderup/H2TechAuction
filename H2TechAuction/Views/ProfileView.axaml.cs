@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace H2TechAuction;
 
-public partial class BuyerOfAuction : UserControl
+public partial class ProfileView : UserControl
 {
-    public BuyerOfAuction()
+    public ProfileView()
     {
         InitializeComponent();
     }
