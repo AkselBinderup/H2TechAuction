@@ -10,8 +10,6 @@
 
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
-    <Folder Include="SQL\StoredProcedures\Update\" />
-    <Folder Include="SQL\StoredProcedures\Read\" />
     <Folder Include="SQL\Triggers\" />
   </ItemGroup>
 
