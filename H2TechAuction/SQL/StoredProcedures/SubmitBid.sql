@@ -1,6 +1,10 @@
-﻿DROP PROCEDURE IF EXISTS SubmitBid
+﻿USE H2TechAuction;
 
-GO;
+GO
+
+DROP PROCEDURE IF EXISTS SubmitBid
+
+GO
 
 CREATE PROCEDURE SubmitBid
 (

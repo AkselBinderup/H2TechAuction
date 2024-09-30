@@ -1,6 +1,10 @@
-﻿DROP PROCEDURE IF EXISTS CreateBus
+﻿USE H2TechAuction;
 
-GO;
+GO
+
+DROP PROCEDURE IF EXISTS CreateBus
+
+GO
 
 CREATE PROCEDURE CreateBus(
 		@HV_Weight	Decimal,

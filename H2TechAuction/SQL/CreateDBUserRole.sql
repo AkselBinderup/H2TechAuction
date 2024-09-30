@@ -1,4 +1,6 @@
-﻿CREATE ROLE AuctionUser;
+﻿USE H2TechAuction;
+
+CREATE ROLE AuctionUser;
 
 GRANT EXECUTE TO AuctionUser;
 

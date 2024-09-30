@@ -1,6 +1,10 @@
-﻿DROP PROCEDURE IF EXISTS CreateAuction
+﻿USE H2TechAuction;
 
-GO;
+GO
+
+DROP PROCEDURE IF EXISTS CreateAuction
+
+GO
 
 CREATE PROCEDURE CreateAuction
 (
@@ -17,7 +21,7 @@ DECLARE @BaseId INT;
 EXEC @BaseId = GetBaseReference
 
 INSERT INTO ActiveAuctions (VehicleId, SellerId, AskingPrice, BaseId)
-VALUES (@MovieId, @SellerId, @AskingPrice, @BaseId);
+VALUES (@VehicleId, @SellerId, @AskingPrice, @BaseId);
 
 SET NOCOUNT OFF;
 

@@ -1,4 +1,8 @@
-﻿CREATE PROCEDURE CreateCorporateUser(
+﻿USE H2TechAuction;
+
+GO
+
+CREATE PROCEDURE CreateCorporateUser(
 	@Username	NVARCHAR(100),
 	@Password	NVARCHAR(100),
 	@EAN		NVARCHAR(50),

@@ -1,6 +1,10 @@
-﻿DROP PROCEDURE IF EXISTS CreatePrivatePersonalCar
+﻿USE H2TechAuction;
 
-GO;
+GO
+
+DROP PROCEDURE IF EXISTS CreatePrivatePersonalCar
+
+GO
 
 CREATE PROCEDURE CreatePrivatePersonalCar(
 		@V_Name		NVARCHAR(100),

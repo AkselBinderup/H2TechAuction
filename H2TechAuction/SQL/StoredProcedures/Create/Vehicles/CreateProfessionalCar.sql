@@ -1,4 +1,8 @@
-﻿DROP PROCEDURE IF EXISTS CreateProfessionalCar
+﻿USE H2TechAuction;
+
+GO
+
+DROP PROCEDURE IF EXISTS CreateProfessionalCar
 
 GO
 

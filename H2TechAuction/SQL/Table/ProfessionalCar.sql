@@ -3,7 +3,7 @@
 		RollCage Bit,
 		FireExtinguisher Bit,
 		RacingSeat Bit,
-		RachingHarness Bit,
+		RacingHarness Bit,
 		LoadCapacity Int,
 		CarId INT,
 		FOREIGN KEY (CarId) REFERENCES PersonalCar(Id));

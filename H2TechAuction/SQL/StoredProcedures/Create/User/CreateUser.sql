@@ -1,6 +1,10 @@
-﻿DROP PROCEDURE IF EXISTS CreateUser
+﻿USE H2TechAuction;
 
-GO;
+GO
+
+DROP PROCEDURE IF EXISTS CreateUser
+
+GO
 
 
 CREATE PROCEDURE CreateUser (
@@ -15,7 +19,13 @@ BEGIN
 
 DECLARE @sql Text
 
-SET @sql = 'CREATE User ' + @Username + ' WITH PASSWORD = ''' + @Password + ''', DEFAULT_DATABASE='+@Username+' , CHECK_POLICY = OFF;'
+SET @sql = 'IF NOT EXISTS (SELECT * FROM sys.server_principals WHERE name = ' + @Username + ')
+			BEGIN
+			CREATE Login ' + @Username + '
+			WITH PASSWORD = ''' + @Password + ''',
+			DEFAULT_DATABASE=''H2TechAuction''
+			CREATE USER ' + @Username + ' FOR LOGIN ' + @Username + '
+			END'
 EXEC @sql;
 
 INSERT INTO Users (Username, Balance, CorporateUser, ZipCode) VALUES (@Username, @Balance, @CorporateUser, @ZipCode)

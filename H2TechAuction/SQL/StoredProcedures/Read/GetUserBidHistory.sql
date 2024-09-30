@@ -1,6 +1,10 @@
-﻿DROP PROCEDURE IF EXISTS GetUserBidHistory;
+﻿USE H2TechAuction;
 
-GO;
+GO
+
+DROP PROCEDURE IF EXISTS GetUserBidHistory;
+
+GO
 
 CREATE PROCEDURE GetUserBidHistoy
 (

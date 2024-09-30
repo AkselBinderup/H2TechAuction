@@ -1,4 +1,8 @@
-﻿CREATE PROCEDURE DeleteAuctions
+﻿USE H2TechAuction;
+
+GO;
+
+CREATE PROCEDURE DeleteAuctions
 AS
 BEGIN
 
