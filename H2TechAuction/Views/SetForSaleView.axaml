@@ -1,0 +1,102 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="950" d:DesignHeight="450"
+             x:Class="H2TechAuction.SetForSaleView">
+	<Grid ColumnDefinitions="auto,*">
+		<Grid ColumnDefinitions="Auto, *"
+      RowDefinitions="Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto"
+      Margin="20">
+			<TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Set For Sale!"
+				FontSize="20"
+				FontWeight="Bold"/>
+			<TextBlock Grid.Row="2" Grid.Column="0" Text="Name"
+					   HorizontalAlignment="Left" VerticalAlignment="Center"
+					   Margin="0,0,20,0"/>
+			<TextBox Grid.Row="2" Grid.Column="1" Width="250" Margin="0,0,0,10"/>
+
+			<TextBlock Grid.Row="4" Grid.Column="0" Text="Milage"
+					   HorizontalAlignment="Left" VerticalAlignment="Center"
+					   Margin="0,0,20,0"/>
+			<TextBox Grid.Row="4" Grid.Column="1" Width="250" Margin="0,0,0,10"/>
+
+			<TextBlock Grid.Row="6" Grid.Column="0" Text="Reg. num"
+					   HorizontalAlignment="Left" VerticalAlignment="Center"
+					   Margin="0,0,20,0"/>
+			<TextBox Grid.Row="6" Grid.Column="1" Width="250" Margin="0,0,0,10"/>
+
+			<TextBlock Grid.Row="8" Grid.Column="0" Text="Year"
+					   HorizontalAlignment="Left" VerticalAlignment="Center"
+					   Margin="0,0,20,0"/>
+			<ComboBox Grid.Row="8" Grid.Column="1" Width="250" Margin="0,0,0,10"
+					  PlaceholderText="Select"/>
+
+			<TextBlock Grid.Row="10" Grid.Column="0" Text="Starting bid"
+					   HorizontalAlignment="Left" VerticalAlignment="Center"
+					   Margin="0,0,20,0"/>
+			<TextBox Grid.Row="10" Grid.Column="1" Width="250" Margin="0,0,0,10" Text="850000"/>
+			
+			<TextBlock Grid.Row="12" Grid.Column="0" Text="Close Auction" HorizontalAlignment="Left" VerticalAlignment="Center"
+					   Margin="0,0,20,0"/>
+			<!--<DatePicker Grid.Row="12" Grid.Column="1" Margin="0,0,0,10"/>-->
+		</Grid>
+		
+		
+		
+
+		<Border Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Padding="10" Margin="10">
+			<Grid ColumnDefinitions="Auto, *" ShowGridLines="False"
+				  RowDefinitions="Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto"
+				  Margin="20">
+				<TextBlock Grid.Row="0" Grid.Column="0" Text="Vehicle Type"
+					   HorizontalAlignment="Left" VerticalAlignment="Center"
+					   Margin="0,0,20,0"/>
+				<ComboBox Grid.Row="0" Grid.Column="1" Width="250" Margin="0,0,0,10"
+					  PlaceholderText="Choose Vehicle"/>
+
+				<TextBlock Grid.Row="2" Grid.Column="0" Text="Height"
+					   HorizontalAlignment="Left" VerticalAlignment="Center"
+					   Margin="0,0,20,0"/>
+				<TextBox Grid.Row="2" Grid.Column="1" Width="250" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+
+
+				<TextBlock Grid.Row="4" Grid.Column="0" Text="Length"
+					   HorizontalAlignment="Left" VerticalAlignment="Center"
+					   Margin="0,0,20,0"/>
+				<TextBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left"  Width="250" Margin="0,0,0,10"/>
+
+				<TextBlock Grid.Row="6" Grid.Column="0" Text="Weight"
+									   HorizontalAlignment="Left" VerticalAlignment="Center"
+									   Margin="0,0,20,0"/>
+				<TextBox Grid.Row="6" Grid.Column="1" Width="250" HorizontalAlignment="Left"  Margin="0,0,0,10"/>
+
+				<TextBlock Grid.Row="8" Grid.Column="0" Text="Engine Size"
+									   HorizontalAlignment="Left" VerticalAlignment="Center"
+									   Margin="0,0,20,0"/>
+				<TextBox Grid.Row="8" Grid.Column="1" Width="250" HorizontalAlignment="Left"  Margin="0,0,0,10"/>
+	
+				<TextBlock Grid.Row="10" Grid.Column="0" Text="Tow Bar"
+									   HorizontalAlignment="Left" VerticalAlignment="Center"
+									   Margin="0,0,20,0"/>
+				<Grid ColumnDefinitions="*,*" Grid.Row="10" Grid.Column="1">
+					<RadioButton Grid.Column="0"
+								 Content="Yes"/>
+					<RadioButton Grid.Column="1"
+								 Content="No"
+								 IsChecked="True"/>
+					
+				</Grid>
+
+
+
+			</Grid>
+
+
+
+		</Border>
+	</Grid>
+
+
+
+</UserControl>
