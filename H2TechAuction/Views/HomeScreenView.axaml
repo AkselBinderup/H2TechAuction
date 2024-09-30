@@ -26,6 +26,11 @@
 					<DataGridTextColumn Header="Year" Binding="{Binding Year}"/>
 					<DataGridTextColumn Header="Bid" Binding="{Binding Bid}"/>
 				</DataGrid.Columns>
+				<DataGrid.Styles>
+					<Style Selector="DataGridCell:current /template/ Grid#FocusVisual">
+						<Setter Property="IsVisible" Value="false" />
+					</Style>
+				</DataGrid.Styles>
 			</DataGrid>
 
 			<TextBlock Text="Current Auctions" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
@@ -41,6 +46,11 @@
 					<DataGridTextColumn Header="Year" Binding="{Binding Year}"/>
 					<DataGridTextColumn Header="Bid" Binding="{Binding Bid}"/>
 				</DataGrid.Columns>
+				<DataGrid.Styles>
+					<Style Selector="DataGridCell:current /template/ Grid#FocusVisual">
+						<Setter Property="IsVisible" Value="false" />
+					</Style>
+				</DataGrid.Styles>
 			</DataGrid>	 
 		</StackPanel>
 		<StackPanel Spacing="5" Grid.Column="1" 
@@ -56,5 +66,5 @@
 					HorizontalAlignment="Stretch"/>
 
 		</StackPanel>
-	</Grid>
+	</Grid> 
 </UserControl>
