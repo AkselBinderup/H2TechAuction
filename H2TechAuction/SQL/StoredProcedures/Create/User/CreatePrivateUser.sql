@@ -1,4 +1,8 @@
-﻿CREATE PROCEDURE CreatePrivateUser(
+﻿USE H2TechAuction;
+
+GO
+
+CREATE PROCEDURE CreatePrivateUser(
 	@Username	NVARCHAR(100),
 	@Password	NVARCHAR(100),
 	@CprNumber	NVARCHAR(11),

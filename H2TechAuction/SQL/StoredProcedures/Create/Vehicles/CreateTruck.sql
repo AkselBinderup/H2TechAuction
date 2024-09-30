@@ -1,6 +1,10 @@
-﻿DROP PROCEDURE IF EXISTS CreateTruck
+﻿USE H2TechAuction;
 
-GO;
+GO
+
+DROP PROCEDURE IF EXISTS CreateTruck
+
+GO
 
 CREATE PROCEDURE CreateTruck(
 		@HV_Weight	Decimal,

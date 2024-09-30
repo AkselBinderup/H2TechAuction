@@ -1,5 +1,10 @@
-﻿DROP PROCEDURE IF EXISTS CreateBaseReference
-GO;
+﻿USE H2TechAuction;
+
+GO
+
+DROP PROCEDURE IF EXISTS CreateBaseReference
+
+GO
 
 CREATE PROCEDURE CreateBaseReference
 AS
