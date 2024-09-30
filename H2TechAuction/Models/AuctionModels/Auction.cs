@@ -10,23 +10,23 @@ namespace H2TechAuction.Models.AuctionModels;
 
 public class Auction
 {
-    public uint AuctionId { get; set; }
+    public int AuctionId { get; set; }
     public Vehicle? Vehicle { get; set; }
     public User? Seller { get; set; } 
-    public ulong MinimumAmount { get; set; } 
+    public decimal MinimumAmount { get; set; } 
 
-    public Auction(Vehicle? vehicle, User? seller, ulong minAmount)
+    public Auction(Vehicle? vehicle, User? seller, decimal minAmount)
     {
         Vehicle = vehicle;
         Seller = seller;
         MinimumAmount = minAmount;
     }
-    public Auction SetForSale(Vehicle? vehicle, User? seller, ulong minAmount)
+    public Auction SetForSale(Vehicle? vehicle, User? seller, decimal minAmount)
     {
         return new Auction(vehicle, seller, minAmount);
     }
 
-    public void RecieveBid(ulong bidAmount)
+    public void RecieveBid(decimal bidAmount)
     {
 
     }

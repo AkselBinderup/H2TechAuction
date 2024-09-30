@@ -3,19 +3,16 @@
 namespace H2TechAuction.Models.UserModels;
 public class CorporateUser : User
 {
-    public long Credit { get; set; }
+    public decimal Credit { get; set; }
     public string? CvrNumber { get; set; }
     public int UserId { get; set; }
     public User? User { get; set; }
-    public CorporateUser()
-    {
-
-    }
-    public CorporateUser(long credit, string cvrNumber)
+    public CorporateUser(decimal credit, string cvrNumber)
     {
         Credit = credit;
         if (CVRValidation.ValidateCvrNumber(cvrNumber))
             CvrNumber = cvrNumber;
+
 
         //db connection...
     }
