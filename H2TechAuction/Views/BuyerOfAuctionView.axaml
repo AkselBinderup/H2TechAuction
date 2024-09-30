@@ -3,17 +3,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="H2TechAuction.BuyerOfAuction"
-			 x:CompileBindings="False">
-
+             x:CompileBindings="False"
+			 x:Class="H2TechAuction.BuyerOfAuctionView">
 	<Grid ColumnDefinitions="Auto,*">
 		<Grid Margin="20"
 			  RowDefinitions="Auto, 10, Auto, 10, Auto, 10"
-			  ColumnDefinitions="Auto,*" 
+			  ColumnDefinitions="Auto,*"
 			  Grid.Column="0" ShowGridLines="True">
-			
-			<TextBlock Grid.Column="0" 
-					   Grid.ColumnSpan="2" 
+
+			<TextBlock Grid.Column="0"
+					   Grid.ColumnSpan="2"
 					   Text="Seller of Auction!"
 					   FontSize="20"
 					   FontWeight="Bold"/>
@@ -23,7 +22,7 @@
 			<Image Source="{Binding ImagePath}"
 				   Width="350"
 				   HorizontalAlignment="Stretch"/>
-			
+
 		</Grid>
 		<StackPanel Grid.Column="1"
 					Margin="20" Width="200"
@@ -46,8 +45,7 @@
 			<Button HorizontalAlignment="Right"
 					Background="#4CAF50"
 					Foreground="White"
-					Content="Accept bid"
-					/>
+					Content="Accept bid"/>
 
 
 
@@ -59,15 +57,6 @@
 			
 			
 		</Grid>-->
-				
+
 	</Grid>
-
-
-
-
-
-
-
-
-
 </UserControl>
