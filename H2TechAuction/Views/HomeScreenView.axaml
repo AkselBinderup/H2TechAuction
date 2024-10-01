@@ -59,10 +59,13 @@
 					Margin="10">
 			<Button Content="+ Set For Sale!"
 					Background="#4CAF50"
+					Click="SetForSale_click"
 					Foreground="White"/>
 			<Button Content="User profile"
+					Click="OpenUserProfile_click"
 					HorizontalAlignment="Stretch"/>
 			<Button Content="Bid history"
+					Click="OpenBidHistory_click"
 					HorizontalAlignment="Stretch"/>
 
 		</StackPanel>

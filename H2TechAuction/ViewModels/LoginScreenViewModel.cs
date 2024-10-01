@@ -26,11 +26,18 @@ public class LoginScreenViewModel : ViewModelBase
 
     public LoginScreenViewModel()
     {
-      
+    }
+
+    public void CreateUser()
+    {
+        MainWindowViewModel.Instance.SetViewModel(new RegisterScreenViewModel());
     }
 
     public void Login()
     {
-        MainWindowViewModel.Instance.SetViewModel(new HomeScreenViewModel());
+        if(Username == "user" && Password == "Pass")
+        {
+            MainWindowViewModel.Instance.SetViewModel(new HomeScreenViewModel());
+        }
     }
 }

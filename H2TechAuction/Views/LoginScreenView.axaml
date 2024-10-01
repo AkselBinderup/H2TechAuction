@@ -22,7 +22,7 @@
 				 Text="{Binding Password}"/>
 		<Grid ColumnDefinitions="*,*">
 			<Label Content="Not Registered?"/>
-			<HyperlinkButton Content="Create User" Grid.Column="1"/>
+			<HyperlinkButton Content="Create User" Command="{Binding CreateUser}" Grid.Column="1"/>
 		</Grid>
 		<Grid ColumnDefinitions="*,*">
 			

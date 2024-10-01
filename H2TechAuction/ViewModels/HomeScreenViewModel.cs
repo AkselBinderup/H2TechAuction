@@ -3,7 +3,9 @@ using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
+using System.Reactive;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +21,7 @@ public class HomeScreenViewModel : ViewModelBase
         get => _yourAuctions;
         private set => this.RaiseAndSetIfChanged(ref _yourAuctions, value); 
     }
+    public ReactiveCommand<AuctionItemModel, Unit> RowSelectedCommand { get; }
 
     public ObservableCollection<AuctionItemModel> CurrentAuctions
     {
@@ -29,18 +32,26 @@ public class HomeScreenViewModel : ViewModelBase
     {
         _yourAuctions = new ObservableCollection<AuctionItemModel>
             {
-                new AuctionItemModel { Name = "Ford Escort", Year = "1983", Bid = "3.000" },
-                new AuctionItemModel { Name = "Tesla Model 3", Year = "2016", Bid = "3.000" }
+                new () { Name = "Ford Escort", Year = "1983", Bid = "3.000" },
+                new () { Name = "Tesla Model 3", Year = "2016", Bid = "3.000" }
             };
 
         _currentAuctions = new ObservableCollection<AuctionItemModel>
             {
-                new AuctionItemModel { Name = "Ford Escort", Year = "1983", Bid = "3.000" },
-                new AuctionItemModel { Name = "Tesla Model 3", Year = "2016", Bid = "3.000" },
-                new AuctionItemModel { Name = "Scania R 730 V8", Year = "2019", Bid = "3.000" },
-                new AuctionItemModel { Name = "Skoda Octavia", Year = "2008", Bid = "3.000" }
+                new () { Name = "Ford Escort", Year = "1983", Bid = "3.000" },
+                new () { Name = "Tesla Model 3", Year = "2016", Bid = "3.000" },
+                new () { Name = "Scania R 730 V8", Year = "2019", Bid = "3.000" },
+                new () { Name = "Skoda Octavia", Year = "2008", Bid = "3.000" }
             };
+        RowSelectedCommand = ReactiveCommand.Create<AuctionItemModel>(OnRowSelected);
     }
-
-
+    public void OpenUserProfile()
+    {
+        MainWindowViewModel.Instance.SetViewModel(new ProfileViewModel());
+    }
+    private void OnRowSelected(AuctionItemModel selectedAuctionItem)
+    {
+        // Handle the selected auction item here
+        Debug.WriteLine($"Selected Auction Item: {selectedAuctionItem.Name}");
+    }
 }

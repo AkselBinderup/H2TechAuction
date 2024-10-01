@@ -20,7 +20,7 @@
 		<TextBox Watermark="Password"
 				 Text="{Binding Password}"/>
 		<TextBox Watermark="Password again"
-				 Text="{Binding Password}"/>
+				 Text="{Binding PasswordRepeat}"/>
 
 		<Grid ColumnDefinitions="*,*">
 			<RadioButton Grid.Column="0"
@@ -33,13 +33,15 @@
 			<Button Content="Cancel" 
 					Grid.Column="0"
 					HorizontalAlignment="Stretch"
-					
+					Command="{Binding Cancel}"
 					/>
 			<Button Grid.Column="1"
 					Content="Create Account"
 					Foreground="White"
 					Background="#0D47A1"
-					HorizontalAlignment="Stretch"/>
+					HorizontalAlignment="Stretch"
+					Command="{Binding CreateAccount}"
+					/>
 		</Grid>
 	</StackPanel>
 </UserControl>

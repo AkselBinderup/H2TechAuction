@@ -36,7 +36,7 @@
 				<TextBlock Text="1"/>
 			</StackPanel>
 
-			<Button Content="Back" HorizontalAlignment="Left" Width="80" Margin="0,20,0,0"/>
+			<Button Click="BackButton_click" Content="Back" HorizontalAlignment="Left" Width="80" Margin="0,20,0,0"/>
 		</StackPanel>
 	</Grid>
 </UserControl>
