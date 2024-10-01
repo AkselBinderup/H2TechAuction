@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.VehicleModels;
 
-public class HeavyVehicle : Vehicle
+public abstract class HeavyVehicle : Vehicle
 {
     public double GetEngineSize()
     {

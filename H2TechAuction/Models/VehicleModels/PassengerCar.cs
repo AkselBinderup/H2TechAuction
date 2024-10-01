@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.VehicleModels;
 
-public class PassengerCar : Vehicle
+public abstract class PassengerCar : Vehicle
 {
     public int AmountOfSeats { get; set; }
     public int TrunkLength { get; set; }
