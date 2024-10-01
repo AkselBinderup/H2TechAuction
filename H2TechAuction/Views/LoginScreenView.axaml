@@ -30,7 +30,7 @@
 					Content="Login"
 					Foreground="White"
 					Background="#4CAF50"
-					Command="{Binding LoginCommand}"
+					Command="{Binding Login}"
 					HorizontalAlignment="Stretch"/>
 		</Grid>
 

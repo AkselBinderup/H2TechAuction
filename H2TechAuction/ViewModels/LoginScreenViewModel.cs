@@ -23,23 +23,10 @@ public class LoginScreenViewModel : ViewModelBase
         get => _Password;
         set => this.RaiseAndSetIfChanged(ref _Password, value, nameof(Password));
     }
-    public ReactiveCommand<Unit, Unit> LoginCommand { get; }
 
     public LoginScreenViewModel()
     {
-        LoginCommand = ReactiveCommand.Create(() =>
-        {
-            MainWindowViewModel.Instance.SetViewModel(new HomeScreenViewModel());
-
-            if (Username == "user" && Password == "pass")
-            {
-                MainWindowViewModel.Instance?.SetViewModel(new HomeScreenViewModel());
-            }
-            else
-            {
-                Console.WriteLine("Login failed");
-            }
-        });
+      
     }
 
     public void Login()
