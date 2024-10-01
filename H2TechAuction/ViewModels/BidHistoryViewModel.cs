@@ -7,16 +7,16 @@ namespace H2TechAuction.ViewModels;
 
 public class BidHistoryViewModel : ViewModelBase
 {
-    private ObservableCollection<AuctionBid> _bidHistory;
+    private ObservableCollection<AuctionItemModel> _bidHistory;
 
-    public ObservableCollection<AuctionBid> BidHistory
+    public ObservableCollection<AuctionItemModel> BidHistory
     {
         get => _bidHistory;
         private set => this.RaiseAndSetIfChanged(ref _bidHistory, value);
     }
     public BidHistoryViewModel()
     {
-        BidHistory = new ObservableCollection<AuctionBid>
+        BidHistory = new ObservableCollection<AuctionItemModel>
         {
             new() { Name = "Ford Escort", Year = "1983", Bid = "3.000", FinalBid = "3.500" },
             new() { Name = "Tesla Model 3", Year = "2016", Bid = "800.000", FinalBid = "WON" },

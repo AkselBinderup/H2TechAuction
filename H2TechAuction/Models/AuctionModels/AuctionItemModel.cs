@@ -11,4 +11,5 @@ public class AuctionItemModel
     public string? Name { get; set; }
     public string? Year { get; set; }
     public string? Bid { get; set; }
+    public string? FinalBid { get; set; }
 }

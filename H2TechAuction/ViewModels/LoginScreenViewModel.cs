@@ -12,7 +12,6 @@ public class LoginScreenViewModel : ViewModelBase
 {
     private string? _Username;
     private string? _Password;
-    private readonly IScreen _hostScreen;
     public string? Username
     {
         get => _Username;
@@ -34,8 +33,7 @@ public class LoginScreenViewModel : ViewModelBase
 
             if (Username == "user" && Password == "pass")
             {
-                // Handle successful login (e.g., navigate to another page)
-                Console.WriteLine("Login successful");
+                MainWindowViewModel.Instance?.SetViewModel(new HomeScreenViewModel());
             }
             else
             {
