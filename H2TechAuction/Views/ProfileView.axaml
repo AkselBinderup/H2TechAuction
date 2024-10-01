@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:CompileBindings="False"
-			 x:Class="H2TechAuction.ProfileView">
+			 x:Class="H2TechAuction.Views.ProfileView">
 	<Grid>
 		<StackPanel Margin="10,40,10,10">
 			<TextBlock Text="Your profile" FontSize="24" Margin="0,0,0,20"/>

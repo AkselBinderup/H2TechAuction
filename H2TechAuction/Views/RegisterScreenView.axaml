@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:CompileBindings="False"
-			 x:Class="H2TechAuction.RegisterScreenView">
+			 x:Class="H2TechAuction.Views.RegisterScreenView">
 	
 	
 	<StackPanel HorizontalAlignment="Center"

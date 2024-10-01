@@ -4,17 +4,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:CompileBindings="False"
-			 x:Class="H2TechAuction.BidHistoryView">
+			 xmlns:vm="clr-namespace:H2TechAuction.ViewModels"
+			 x:Class="H2TechAuction.Views.BidHistoryView">
+	<UserControl.DataContext>
+		<vm:BidHistoryViewModel/>
+	</UserControl.DataContext>
 	<Grid>
 		<StackPanel Margin="10">
 			<TextBlock Text="Your bid history" FontSize="24" Margin="0,0,0,20"/>
 
-			<DataGrid ItemsSource="{Binding HistoryItems}" AutoGenerateColumns="False" HeadersVisibility="Column" Margin="0,0,0,20" IsReadOnly="True">
+			<DataGrid HeadersVisibility="Column"
+					  ItemsSource="{Binding BidHistory}" 
+					  AutoGenerateColumns="False" 
+					  Margin="0,0,0,20" 
+					  IsReadOnly="True">
 				<DataGrid.Columns>
 					<DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" />
 					<DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="100" />
 					<DataGridTextColumn Header="Bid" Binding="{Binding Bid}" Width="100" />
-					<DataGridTextColumn Header="FinalBid" Binding="{Binding Final}" Width="100" />
+					<DataGridTextColumn Header="FinalBid" Binding="{Binding FinalBid}" Width="100" />
 				</DataGrid.Columns>
 			</DataGrid>
 
