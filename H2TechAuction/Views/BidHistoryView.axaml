@@ -15,7 +15,7 @@
 
 			<DataGrid HeadersVisibility="Column"
 					  ItemsSource="{Binding BidHistory}" 
-					  AutoGenerateColumns="False" 
+					  AutoGenerateColumns="True" 
 					  Margin="0,0,0,20" 
 					  IsReadOnly="True">
 				<DataGrid.Columns>

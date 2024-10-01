@@ -12,7 +12,6 @@ public class LoginScreenViewModel : ViewModelBase
 {
     private string? _Username;
     private string? _Password;
-    private readonly IScreen _hostScreen;
     public string? Username
     {
         get => _Username;
@@ -30,10 +29,9 @@ public class LoginScreenViewModel : ViewModelBase
     {
         LoginCommand = ReactiveCommand.Create(() =>
         {
-            if (Username == "user" && Password == "pass")
+            if (Username == "user" && Password == "password")
             {
-                // Handle successful login (e.g., navigate to another page)
-                Console.WriteLine("Login successful");
+                MainWindowViewModel.Instance?.SetViewModel(new HomeScreenViewModel());
             }
             else
             {
@@ -41,4 +39,5 @@ public class LoginScreenViewModel : ViewModelBase
             }
         });
     }
+
 }
