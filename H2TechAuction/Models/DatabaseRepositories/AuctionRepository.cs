@@ -13,10 +13,15 @@ public class AuctionRepository : CommonDBModule, IDBRepository<Auction>
         throw new NotImplementedException();
     }
 
-    public bool Insert(Auction Input)
+    public bool Create(Auction Input)
     {
-        return ExecuteCommand("EXEC SP_x (x,x,x,x)");
+        return ExecuteCommand("Insert into ");
     }
+    public Auction Read()
+    {
+        throw new NotImplementedException();
+    }
+
     public bool Update(Auction Input, int id)
     {
         throw new NotImplementedException();

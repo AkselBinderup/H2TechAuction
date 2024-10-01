@@ -13,12 +13,17 @@ public class UserRepository : IDBRepository<Auction>
         throw new NotImplementedException();
     }
 
-    public bool Insert(Auction Input)
+    public bool Create(Auction Input)
     {
         throw new NotImplementedException();
     }
 
     public bool Update(Auction Input, int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Auction Read()
     {
         throw new NotImplementedException();
     }

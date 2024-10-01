@@ -32,5 +32,4 @@ public partial class CommonDBModule
         conn.Close();
         return res;
     }
-
 }
