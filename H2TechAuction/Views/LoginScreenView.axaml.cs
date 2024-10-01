@@ -10,6 +10,5 @@ public partial class LoginScreenView : UserControl
     public LoginScreenView()
     {
         InitializeComponent();
-        DataContext = new LoginScreenViewModel();
     }
 }

@@ -17,9 +17,16 @@ BEGIN;
 SET NOCOUNT ON
 
 SELECT TOP 20
-	a.AskingPrice
+	a.AskingPrice,
+	v.Name,
+	v.ModelYear,
+	v.Id,
+	a.Id,
+	a.CurrentBid
 	FROM Auctions AS a
 	LEFT JOIN Vehicle AS v ON a.VehicleId = v.Id
+	WHERE a.IsActive = 1 AND
+	v.Name LIKE '%' + @SearchText + '%'
 
 SET NOCOUNT OFF
 

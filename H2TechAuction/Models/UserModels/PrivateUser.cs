@@ -11,8 +11,6 @@ namespace H2TechAuction.Models.UserModels;
 public class PrivateUser : User
 {
     public string? CPRNumber { get; private set; }
-    public int UserId { get; set; }
-    public User? User { get; set; }
 
     public PrivateUser(string cprNumber)
     {

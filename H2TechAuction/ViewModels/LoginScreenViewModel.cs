@@ -30,6 +30,8 @@ public class LoginScreenViewModel : ViewModelBase
     {
         LoginCommand = ReactiveCommand.Create(() =>
         {
+            MainWindowViewModel.Instance.SetViewModel(new HomeScreenViewModel());
+
             if (Username == "user" && Password == "pass")
             {
                 // Handle successful login (e.g., navigate to another page)
@@ -40,5 +42,10 @@ public class LoginScreenViewModel : ViewModelBase
                 Console.WriteLine("Login failed");
             }
         });
+    }
+
+    public void Login()
+    {
+        MainWindowViewModel.Instance.SetViewModel(new HomeScreenViewModel());
     }
 }

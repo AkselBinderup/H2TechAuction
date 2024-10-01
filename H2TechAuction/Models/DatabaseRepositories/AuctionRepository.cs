@@ -1,4 +1,6 @@
 ﻿using H2TechAuction.Models.AuctionModels;
+using H2TechAuction.Models.UserModels;
+using H2TechAuction.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +17,7 @@ public class AuctionRepository : CommonDBModule, IDBRepository<Auction>
 
     public bool Create(Auction Input)
     {
-        return ExecuteCommand("Insert into ");
+        return ExecuteCommand($"EXEC CreateAuction({Input.Vehicle.Id}, {User.Id}, {Input.MinimumAmount})");
     }
     public Auction Read()
     {
@@ -24,6 +26,6 @@ public class AuctionRepository : CommonDBModule, IDBRepository<Auction>
 
     public bool Update(Auction Input, int id)
     {
-        throw new NotImplementedException();
+        return ExecuteCommand($"EXEC UpdateAuction({Input.AuctionId}, ");
     }
 }
