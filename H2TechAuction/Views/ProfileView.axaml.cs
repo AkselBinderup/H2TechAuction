@@ -14,6 +14,6 @@ public partial class ProfileView : UserControl
     }
     private void BackButton_click(object sender, RoutedEventArgs e)
     {
-        MainWindowViewModel.Instance.SetViewModel(new HomeScreenViewModel());
+        MainWindowViewModel.Instance?.SetViewModel(new HomeScreenViewModel());
     }
 }

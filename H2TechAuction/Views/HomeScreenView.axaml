@@ -19,6 +19,7 @@
 				AutoGenerateColumns="True"
 				HeadersVisibility="Column"
 				Height="200"
+				SelectionChanged="YourAuctionsSelectionChanged"
 				SelectionMode="Single"
 				IsReadOnly="True">
 				<DataGrid.Columns>
@@ -39,6 +40,7 @@
 				AutoGenerateColumns ="True"
 				HeadersVisibility="Column"
 				Height="200"
+				SelectionChanged="CurrentAuctionsSelectionChanged"
 				SelectionMode="Single"
 				IsReadOnly="True">
 				<DataGrid.Columns>

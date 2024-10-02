@@ -14,11 +14,11 @@
 		<Grid Margin="20"
 			  RowDefinitions="Auto, 10, Auto, 10, Auto, 10"
 			  ColumnDefinitions="Auto,*"
-			  Grid.Column="0" ShowGridLines="True">
+			  Grid.Column="0">
 
 			<TextBlock Grid.Column="0"
 					   Grid.ColumnSpan="2"
-					   Text="Seller of Auction!"
+					   Text="{Binding CarName}"
 					   FontSize="20"
 					   FontWeight="Bold"/>
 			<TextBlock Grid.Column="0"
@@ -27,7 +27,6 @@
 			<Image Source="{Binding ImagePath}"
 				   Width="250" Height="250" Grid.Row="4"
 				   HorizontalAlignment="Stretch"/>
-
 		</Grid>
 		<StackPanel Grid.Column="1"
 					Margin="20" Width="200"
@@ -44,7 +43,7 @@
 			<TextBlock Grid.Column="0"
 					   Grid.ColumnSpan="2"
 					   Grid.Row="2"
-					   Text="Current bid: DKK 500.00"
+					   Text="{Binding CurrentBid}"
 					   FontSize="20"
 					   HorizontalAlignment="Right"/>
 			<Button HorizontalAlignment="Right"

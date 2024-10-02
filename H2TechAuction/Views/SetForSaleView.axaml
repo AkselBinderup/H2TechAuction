@@ -2,8 +2,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="950" d:DesignHeight="450"
-             x:Class="H2TechAuction.Views.SetForSaleView">
+             mc:Ignorable="d" d:DesignWidth="950" x:CompileBindings="False" d:DesignHeight="450"
+             x:Class="H2TechAuction.Views.SetForSaleView"
+			 xmlns:local="clr-namespace:H2TechAuction.Converters">
+
+	<UserControl.Resources>
+		<local:InverseBoolConverter x:Key="InverseBoolConverter"/>
+	</UserControl.Resources>
+
 	<Grid ColumnDefinitions="auto,*">
 		<Grid ColumnDefinitions="Auto, *"
       RowDefinitions="Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto"
@@ -12,36 +18,46 @@
 				FontSize="20"
 				FontWeight="Bold"/>
 			<TextBlock Grid.Row="2" Grid.Column="0" Text="Name"
-					   HorizontalAlignment="Left" VerticalAlignment="Center"
+					   HorizontalAlignment="Left" 
+					   VerticalAlignment="Center"
 					   Margin="0,0,20,0"/>
-			<TextBox Grid.Row="2" Grid.Column="1" Width="250" Margin="0,0,0,10"/>
+			<TextBox Grid.Row="2" Text="{Binding Name, Mode=TwoWay}"
+					 Grid.Column="1" Width="250" Margin="0,0,0,10"/>
 
 			<TextBlock Grid.Row="4" Grid.Column="0" Text="Milage"
 					   HorizontalAlignment="Left" VerticalAlignment="Center"
 					   Margin="0,0,20,0"/>
-			<TextBox Grid.Row="4" Grid.Column="1" Width="250" Margin="0,0,0,10"/>
+			<TextBox Grid.Row="4" Grid.Column="1" 
+					 Text="{Binding Mileage, Mode=TwoWay}"
+					 Width="250" Margin="0,0,0,10"/>
 
 			<TextBlock Grid.Row="6" Grid.Column="0" Text="Reg. num"
 					   HorizontalAlignment="Left" VerticalAlignment="Center"
 					   Margin="0,0,20,0"/>
-			<TextBox Grid.Row="6" Grid.Column="1" Width="250" Margin="0,0,0,10"/>
+			<TextBox Grid.Row="6"
+					 Text="{Binding RegNr, Mode=TwoWay}"
+					 Grid.Column="1" Width="250" Margin="0,0,0,10"/>
 
 			<TextBlock Grid.Row="8" Grid.Column="0" Text="Year"
 					   HorizontalAlignment="Left" VerticalAlignment="Center"
 					   Margin="0,0,20,0"/>
-			<ComboBox Grid.Row="8" Grid.Column="1" Width="250" Margin="0,0,0,10"
+			<ComboBox Grid.Row="8"
+					  SelectedItem="{Binding Year, Mode=TwoWay}"
+					  Grid.Column="1" Width="250" Margin="0,0,0,10"
 					  PlaceholderText="Select"/>
 
 			<TextBlock Grid.Row="10" Grid.Column="0" Text="Starting bid"
 					   HorizontalAlignment="Left" VerticalAlignment="Center"
 					   Margin="0,0,20,0"/>
-			<TextBox Grid.Row="10" Grid.Column="1" Width="250" Margin="0,0,0,10" Text="850000"/>
+			<TextBox Grid.Row="10" 
+					 Text="{Binding StartingBid, Mode=TwoWay}" 
+					 Grid.Column="1" Width="250" Margin="0,0,0,10"/>
 			
 			<TextBlock Grid.Row="12" Grid.Column="0" Text="Close Auction" HorizontalAlignment="Left" VerticalAlignment="Center"
 					   Margin="0,0,20,0"/>
 			<!--<DatePicker Grid.Row="12" Grid.Column="1" Margin="0,0,0,10"/>-->
 			<Button Grid.Row="14" Click="BackButton_click" Content="Back" HorizontalAlignment="Left" Width="80" Margin="0,0,20,0"/>
-
+			
 		</Grid>
 		
 		
@@ -55,40 +71,43 @@
 					   HorizontalAlignment="Left" VerticalAlignment="Center"
 					   Margin="0,0,20,0"/>
 				<ComboBox Grid.Row="0" Grid.Column="1" Width="250" Margin="0,0,0,10"
-					  PlaceholderText="Choose Vehicle"/>
+					  PlaceholderText="Choose Vehicle" SelectedItem="{Binding Vehicle, Mode=TwoWay}"/>
 
 				<TextBlock Grid.Row="2" Grid.Column="0" Text="Height"
 					   HorizontalAlignment="Left" VerticalAlignment="Center"
 					   Margin="0,0,20,0"/>
-				<TextBox Grid.Row="2" Grid.Column="1" Width="250" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+				<TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Height, Mode=TwoWay}" Width="250" HorizontalAlignment="Left" Margin="0,0,0,10"/>
 
 
 				<TextBlock Grid.Row="4" Grid.Column="0" Text="Length"
 					   HorizontalAlignment="Left" VerticalAlignment="Center"
 					   Margin="0,0,20,0"/>
-				<TextBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left"  Width="250" Margin="0,0,0,10"/>
+				<TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Length, Mode=TwoWay}" HorizontalAlignment="Left"  Width="250" Margin="0,0,0,10"/>
 
 				<TextBlock Grid.Row="6" Grid.Column="0" Text="Weight"
 									   HorizontalAlignment="Left" VerticalAlignment="Center"
 									   Margin="0,0,20,0"/>
-				<TextBox Grid.Row="6" Grid.Column="1" Width="250" HorizontalAlignment="Left"  Margin="0,0,0,10"/>
+				<TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Weight, Mode=TwoWay}" Width="250" HorizontalAlignment="Left"  Margin="0,0,0,10"/>
 
 				<TextBlock Grid.Row="8" Grid.Column="0" Text="Engine Size"
 									   HorizontalAlignment="Left" VerticalAlignment="Center"
 									   Margin="0,0,20,0"/>
-				<TextBox Grid.Row="8" Grid.Column="1" Width="250" HorizontalAlignment="Left"  Margin="0,0,0,10"/>
+				<TextBox Grid.Row="8" Grid.Column="1" Width="250" Text="{Binding EngineSize, Mode=TwoWay}" HorizontalAlignment="Left"  Margin="0,0,0,10"/>
 	
 				<TextBlock Grid.Row="10" Grid.Column="0" Text="Tow Bar"
 									   HorizontalAlignment="Left" VerticalAlignment="Center"
 									   Margin="0,0,20,0"/>
 				<Grid ColumnDefinitions="*,*" Grid.Row="10" Grid.Column="1">
 					<RadioButton Grid.Column="0"
-								 Content="Yes"/>
+								 Content="Yes"
+								 IsChecked="{Binding TowBar, Mode=TwoWay}"
+								 />
 					<RadioButton Grid.Column="1"
 								 Content="No"
-								 IsChecked="True"/>
-					
+								 IsChecked="{Binding TowBar, Converter={StaticResource InverseBoolConverter}}"/>
 				</Grid>
+				<Button Grid.Row="12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Set for sale!"
+						Background="#4CAF50" Foreground="White" FontWeight="Bold" FontSize="16" Command="{Binding SellCarAction}"/>
 
 
 

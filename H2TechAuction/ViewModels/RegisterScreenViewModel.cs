@@ -25,7 +25,7 @@ public class RegisterScreenViewModel : ViewModelBase
     }
     public void Cancel()
     {
-        MainWindowViewModel.Instance.SetViewModel(new LoginScreenViewModel());
+        MainWindowViewModel.Instance?.SetViewModel(new LoginScreenViewModel());
     }
     public void CreateAccount()
     {
@@ -37,7 +37,7 @@ public class RegisterScreenViewModel : ViewModelBase
         }
         else
         {
-            MainWindowViewModel.Instance.SetViewModel(new LoginScreenViewModel());
+            MainWindowViewModel.Instance?.SetViewModel(new LoginScreenViewModel());
         }
     }
 }

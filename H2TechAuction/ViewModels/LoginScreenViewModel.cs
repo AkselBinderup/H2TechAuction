@@ -30,14 +30,14 @@ public class LoginScreenViewModel : ViewModelBase
 
     public void CreateUser()
     {
-        MainWindowViewModel.Instance.SetViewModel(new RegisterScreenViewModel());
+        MainWindowViewModel.Instance?.SetViewModel(new RegisterScreenViewModel());
     }
 
     public void Login()
     {
         if(Username == "user" && Password == "Pass")
         {
-            MainWindowViewModel.Instance.SetViewModel(new HomeScreenViewModel());
+            MainWindowViewModel.Instance?.SetViewModel(new HomeScreenViewModel());
         }
     }
 }

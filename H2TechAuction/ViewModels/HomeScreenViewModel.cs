@@ -47,11 +47,10 @@ public class HomeScreenViewModel : ViewModelBase
     }
     public void OpenUserProfile()
     {
-        MainWindowViewModel.Instance.SetViewModel(new ProfileViewModel());
+        MainWindowViewModel.Instance?.SetViewModel(new ProfileViewModel());
     }
     private void OnRowSelected(AuctionItemModel selectedAuctionItem)
     {
-        // Handle the selected auction item here
         Debug.WriteLine($"Selected Auction Item: {selectedAuctionItem.Name}");
     }
 }
