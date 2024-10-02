@@ -12,7 +12,7 @@
 	</UserControl.DataContext>
 	<Grid ColumnDefinitions="Auto,*">
 		<Grid Margin="20"
-			  RowDefinitions="Auto, 10, Auto, 10, Auto, 10"
+			  RowDefinitions="Auto, 10, Auto, 10, Auto, 10, auto"
 			  ColumnDefinitions="Auto,*"
 			  Grid.Column="0">
 
@@ -23,10 +23,15 @@
 					   FontWeight="Bold"/>
 			<TextBlock Grid.Column="0"
 					   Grid.Row="2"
-					   Text="Auction info"/>
+					   Text="{Binding AuctionInfoToString}"/>
 			<Image Source="{Binding ImagePath}"
 				   Width="250" Height="250" Grid.Row="4"
 				   HorizontalAlignment="Stretch"/>
+			<Button Grid.Row="6"
+					HorizontalAlignment="Left"
+					Content="Back"
+					Click="ReturnToHome_click"
+				/>
 		</Grid>
 		<StackPanel Grid.Column="1"
 					Margin="20" Width="200"
@@ -46,11 +51,21 @@
 					   Text="{Binding CurrentBid}"
 					   FontSize="20"
 					   HorizontalAlignment="Right"/>
-			<Button HorizontalAlignment="Right"
+			<Button  Grid.Column="0"
+					 Grid.Row="4"
+					 HorizontalAlignment="Right"
 					Background="#4CAF50"
 					Foreground="White"
-					Content="Accept bid"/>
-
+					Content="Accept bid"
+					 IsVisible="{Binding DetermineAcceptBTNVisibility}"
+					 />
+			<Button Grid.Column="0"
+					Grid.Row="4"
+					HorizontalAlignment="Right"
+					Background="#4CAF50"
+					Foreground="White"
+					Content="Place Bid"
+					IsVisible="{Binding DeterminePlaceBTNVisibility}"/>
 
 
 		</StackPanel>

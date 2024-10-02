@@ -1,6 +1,7 @@
 ﻿using H2TechAuction.Models.VehicleModels;
 using ReactiveUI;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reactive;
 
@@ -36,7 +37,13 @@ public class SetForSaleViewModel : ViewModelBase
         get => _selectedVehicle;
         private set => this.RaiseAndSetIfChanged(ref _selectedVehicle, value);
     }
-
+    public List<VehicleTypes> VehicleOptions { get; } = new ()
+    {
+        VehicleTypes.PrivatePassengerCar,
+        VehicleTypes.ProfessionalPassengerCar,
+        VehicleTypes.Bus,
+        VehicleTypes.Truck
+    };
     private void UpdateSelectedVehicle()
     {
         switch (SelectedVehicleType)

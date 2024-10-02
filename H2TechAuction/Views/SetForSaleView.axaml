@@ -71,7 +71,8 @@
 					   HorizontalAlignment="Left" VerticalAlignment="Center"
 					   Margin="0,0,20,0"/>
 				<ComboBox Grid.Row="0" Grid.Column="1" Width="250" Margin="0,0,0,10"
-					  PlaceholderText="Choose Vehicle" SelectedItem="{Binding Vehicle, Mode=TwoWay}"/>
+					  PlaceholderText="Choose Vehicle"
+						  ItemsSource="{Binding VehicleOptions}" SelectedItem="{Binding Vehicle, Mode=TwoWay}"/>
 
 				<TextBlock Grid.Row="2" Grid.Column="0" Text="Height"
 					   HorizontalAlignment="Left" VerticalAlignment="Center"

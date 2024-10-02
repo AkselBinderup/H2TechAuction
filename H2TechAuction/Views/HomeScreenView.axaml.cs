@@ -32,11 +32,11 @@ public partial class HomeScreenView : UserControl
     private void YourAuctionsSelectionChanged(object sender,  SelectionChangedEventArgs e)
     {
         var dataGrid = sender as DataGrid;
-        var selectedItem = dataGrid?.SelectedItem as AuctionItemModel; // Assuming the item type is AuctionViewModel
+        var selectedItem = dataGrid?.SelectedItem as AuctionItemModel; 
 
         if (selectedItem != null)
         {
-            MainWindowViewModel.Instance?.SetViewModel(new BuyerOfAuctionViewModel());
+            MainWindowViewModel.Instance?.SetViewModel(new BuyerOfAuctionViewModel(selectedItem, true));
         }
     }
 
@@ -47,7 +47,7 @@ public partial class HomeScreenView : UserControl
 
         if (selectedItem != null)
         {
-            MainWindowViewModel.Instance?.SetViewModel(new BuyerOfAuctionViewModel(selectedItem));
+            MainWindowViewModel.Instance?.SetViewModel(new BuyerOfAuctionViewModel(selectedItem, false));
         }
     }
 }

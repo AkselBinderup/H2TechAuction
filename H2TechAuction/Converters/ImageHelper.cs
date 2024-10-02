@@ -12,8 +12,6 @@ namespace H2TechAuction.Converters;
 
 public static class ImageHelper
 {
-    public static Bitmap LoadFromResource(Uri resourceUri)
-    {
-        return new Bitmap(AssetLoader.Open(resourceUri));
-    }
+    public static Bitmap LoadFromResource(Uri resourceUri)=> new (AssetLoader.Open(resourceUri));
+    
 }
