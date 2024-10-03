@@ -158,12 +158,7 @@ public class SetForSaleViewModel : ViewModelBase
             SelectedVehicle.EnergyClass = energy.DetermineClass(Year, Vehicle, KilometerLiter);
         }
         //ændr private user til brugerens status please::: TODO TODOOO
-        repo.Create(new Auction(SelectedVehicle, new PrivateUser(""), StartingBid));
+        repo.Create(SelectedVehicle);
         Debug.WriteLine($"Selling car: {Name}, Mileage: {Mileage}, RegNr: {RegNr}, Starting Bid: {StartingBid}");
     }
-    private int CalculateKilometerLiter()
-    {
-        return 15; 
-    }
-
 }

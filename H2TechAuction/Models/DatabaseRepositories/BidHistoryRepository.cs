@@ -6,24 +6,24 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.DatabaseRepositories;
-public class BidHistoryRepository : IDBRepository<Auction>
+public class BidHistoryRepository : IDBRepository<AuctionItemModel>
 {
     public bool Delete(int Id)
     {
         throw new NotImplementedException();
     }
 
-    public bool Create(Auction Input)
+    public bool Create(AuctionItemModel Input)
     {
         throw new NotImplementedException();
     }
 
-    public bool Update(Auction Input, int id)
+    public bool Update(AuctionItemModel Input, int id)
     {
         throw new NotImplementedException();
     }
 
-    public Auction Read()
+    public AuctionItemModel Read()
     {
         throw new NotImplementedException();
     }

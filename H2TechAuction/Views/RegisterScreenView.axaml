@@ -22,13 +22,25 @@
 		<TextBox Watermark="Password again"
 				 Text="{Binding PasswordRepeat}"/>
 
+		<!-- Error message TextBlock -->
+		<TextBlock Text="{Binding ErrorMessage}"
+				   Foreground="Red"
+				   FontWeight="Bold"
+				   IsVisible="{Binding IsErrorMessageVisible}"/>
+
 		<Grid ColumnDefinitions="*,*">
 			<RadioButton Grid.Column="0"
-						 Content="Corporate"/>
+                     Content="Corporate"
+                     IsChecked="{Binding IsCorporateSelected}"/>
 			<RadioButton Grid.Column="1"
 						 Content="Private"
-						 IsChecked="True"/>
+						 IsChecked="{Binding IsPrivateSelected}"/>
 		</Grid>
+		<TextBlock Text="Identification Value:"/>
+		<TextBox Watermark="{Binding IdentificationType}"
+				 Text="{Binding IdentificationValue}"/>
+
+
 		<Grid ColumnDefinitions="*, *">
 			<Button Content="Cancel" 
 					Grid.Column="0"
