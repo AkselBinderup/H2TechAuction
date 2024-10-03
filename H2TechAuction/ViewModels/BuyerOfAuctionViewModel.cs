@@ -52,7 +52,7 @@ public class BuyerOfAuctionViewModel : ViewModelBase
         AuctionInfoToString = "[Description]";
         ImagePath = ImageHelper.LoadFromResource(new System.Uri("avares://H2TechAuction/Images/VehicleNotAvailable.jpg"));
     }
-    public BuyerOfAuctionViewModel(AuctionItemModel model, bool isYourAuction)
+    public BuyerOfAuctionViewModel(CurrentBidModel model, bool isYourAuction)
     {
         DeterminePlaceBTNVisibility = true;
         DetermineAcceptBTNVisibility = false;

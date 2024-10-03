@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.DatabaseRepositories;
-public class VehicleRepository : IDBRepository<Vehicle>
+public class VehicleRepository : CommonDBModule<Vehicle>, IDBRepository<Vehicle>
 {
     public bool Create(Vehicle Input)
     {

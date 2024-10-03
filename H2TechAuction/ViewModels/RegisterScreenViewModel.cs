@@ -75,7 +75,6 @@ public class RegisterScreenViewModel : ViewModelBase
             if (value)
             {
                 IdentificationType = "Enter CPR-Number";
-                
             }
         }
     }
@@ -87,7 +86,7 @@ public class RegisterScreenViewModel : ViewModelBase
     {
         if(string.IsNullOrEmpty(_Username) || string.IsNullOrEmpty(_Password) ||
             string.IsNullOrEmpty(_PasswordRepeat) || 
-            _Password != _PasswordRepeat || IdentificationValue == null)
+            _Password != _PasswordRepeat || string.IsNullOrEmpty(IdentificationValue))
         {
             if (string.IsNullOrEmpty(_Username))
             {
@@ -101,7 +100,7 @@ public class RegisterScreenViewModel : ViewModelBase
             {
                 ErrorMessage = "Passwords do not match.";
             }
-            else if (IdentificationValue == null)
+            else if (string.IsNullOrEmpty(IdentificationValue))
             {
                 if (IsCorporateSelected)
                     ErrorMessage = "Please enter CVR-number to register...";
@@ -118,10 +117,12 @@ public class RegisterScreenViewModel : ViewModelBase
             UserRepository repo = new();
             if(IsCorporateSelected)
             {
+                //DBTODO
                 repo.Create(new CorporateUser(0, IdentificationValue));
             }
             else if(IsPrivateSelected)
             {
+                //DBTODO
                 repo.Create(new PrivateUser(IdentificationValue));
             }
 

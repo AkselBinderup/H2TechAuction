@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.DatabaseRepositories;
-public class UserRepository : IDBRepository<User>
+public class UserRepository : CommonDBModule<User>, IDBRepository<User>
 {
     public bool Delete(int Id)
     {
@@ -24,13 +24,13 @@ public class UserRepository : IDBRepository<User>
         throw new NotImplementedException();
     }
 
-    public Auction Read()
+    public User Read()
     {
-        throw new NotImplementedException();
+        throw new NotImplementedException();        
     }
-
-    User IDBRepository<User>.Read()
+    public bool ValidateUser(string? username, string? password)
     {
-        throw new NotImplementedException();
+        //DBTODO
+        return ExecuteCommand("");
     }
 }

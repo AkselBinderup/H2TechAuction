@@ -144,7 +144,8 @@ public class SetForSaleViewModel : ViewModelBase
 
     public void SellCarAction()
     {
-        VehicleRepository repo = new();
+        VehicleRepository vehicleRepo = new();
+        AuctionRepository auctionRepository = new();
         GetEnergyClass energy = new();
         if (SelectedVehicle != null)
         {
@@ -156,9 +157,11 @@ public class SetForSaleViewModel : ViewModelBase
             SelectedVehicle.Fuel = Vehicle;  
             SelectedVehicle.KilometerLiter = KilometerLiter;
             SelectedVehicle.EnergyClass = energy.DetermineClass(Year, Vehicle, KilometerLiter);
+            auctionRepository.Create(new Auction(SelectedVehicle, new PrivateUser(""), 0));
+            //DBTODO
+            vehicleRepo.Create(SelectedVehicle);
         }
         //ændr private user til brugerens status please::: TODO TODOOO
-        repo.Create(SelectedVehicle);
         Debug.WriteLine($"Selling car: {Name}, Mileage: {Mileage}, RegNr: {RegNr}, Starting Bid: {StartingBid}");
     }
 }
