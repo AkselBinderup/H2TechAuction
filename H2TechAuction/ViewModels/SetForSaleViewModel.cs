@@ -1,4 +1,9 @@
-﻿using H2TechAuction.Models.VehicleModels;
+﻿using H2TechAuction.Converters;
+using H2TechAuction.Models.AuctionModels;
+using H2TechAuction.Models.DatabaseRepositories;
+using H2TechAuction.Models.UserModels;
+using H2TechAuction.Models.UserModels.Generators;
+using H2TechAuction.Models.VehicleModels;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
@@ -19,6 +24,7 @@ public class SetForSaleViewModel : ViewModelBase
     private double _length;
     private double _weight;
     private double _engineSize;
+    private int _kilometerLiter;
     private bool _towBar;
     private VehicleTypes _selectedVehiclType;
     private Vehicle? _selectedVehicle;
@@ -37,13 +43,13 @@ public class SetForSaleViewModel : ViewModelBase
         get => _selectedVehicle;
         private set => this.RaiseAndSetIfChanged(ref _selectedVehicle, value);
     }
-    public List<VehicleTypes> VehicleOptions { get; } = new ()
-    {
-        VehicleTypes.PrivatePassengerCar,
-        VehicleTypes.ProfessionalPassengerCar,
-        VehicleTypes.Bus,
-        VehicleTypes.Truck
-    };
+    public List<string> VehicleOptions { get; } =
+    [
+        VehicleTypes.PrivatePassengerCar.AddSpacesEnum(),
+        VehicleTypes.ProfessionalPassengerCar.AddSpacesEnum(),
+        VehicleTypes.Bus.AddSpacesEnum(),
+        VehicleTypes.Truck.AddSpacesEnum()
+    ];
     private void UpdateSelectedVehicle()
     {
         switch (SelectedVehicleType)
@@ -124,6 +130,11 @@ public class SetForSaleViewModel : ViewModelBase
         get => _engineSize;
         set => this.RaiseAndSetIfChanged(ref _engineSize, value);
     }
+    public int KilometerLiter
+    {
+        get => _kilometerLiter;
+        set => this.RaiseAndSetIfChanged(ref _kilometerLiter, value);
+    }
 
     public bool TowBar
     {
@@ -133,8 +144,26 @@ public class SetForSaleViewModel : ViewModelBase
 
     public void SellCarAction()
     {
+        VehicleRepository repo = new();
+        GetEnergyClass energy = new();
+        if (SelectedVehicle != null)
+        {
+            SelectedVehicle.Name = Name;
+            SelectedVehicle.Kilometers = Mileage; 
+            SelectedVehicle.ModelYear = Year;
+            SelectedVehicle.TowingHitch = TowBar;
+            SelectedVehicle.EngineSize = EngineSize;
+            SelectedVehicle.Fuel = Vehicle;  
+            SelectedVehicle.KilometerLiter = KilometerLiter;
+            SelectedVehicle.EnergyClass = energy.DetermineClass(Year, Vehicle, KilometerLiter);
+        }
+        //ændr private user til brugerens status please::: TODO TODOOO
+        repo.Create(new Auction(SelectedVehicle, new PrivateUser(""), StartingBid));
         Debug.WriteLine($"Selling car: {Name}, Mileage: {Mileage}, RegNr: {RegNr}, Starting Bid: {StartingBid}");
     }
-
+    private int CalculateKilometerLiter()
+    {
+        return 15; 
+    }
 
 }
