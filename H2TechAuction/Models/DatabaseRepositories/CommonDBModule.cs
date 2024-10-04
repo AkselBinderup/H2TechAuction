@@ -32,6 +32,20 @@ public partial class CommonDBModule <T>
         conn.Close();
         return res;
     }
+    protected async Task<bool> ExecuteReaderWithParametersAsync(SqlCommand command, string field, string comparisonValue)
+    {
+        using var conn = GetConnection();
+        command.Connection = conn;
+        using var reader = await command.ExecuteReaderAsync();
+        if (reader.Read())
+        {
+            var fieldValue = reader[field].ToString();
+            var comp = comparisonValue;
+
+            return fieldValue == comp;
+        }
+        return false;
+    }
 
     protected List<T> ExecuteReader<T>(SqlCommand? command) where T : new()
     {

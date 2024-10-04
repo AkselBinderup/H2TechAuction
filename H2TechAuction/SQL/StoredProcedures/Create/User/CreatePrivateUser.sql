@@ -23,4 +23,3 @@ SET @UserId = Scope_Identity()
 INSERT INTO PrivateUsers (UserId, CPRNumber) VALUES (@UserId, @CPRNumber)
 
 END;
-

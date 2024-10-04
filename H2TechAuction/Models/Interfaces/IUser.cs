@@ -6,5 +6,6 @@ public interface IUser
     int UserId { get; set; }
 
     string PostalCode { get; set; }
+    decimal Balance { get; set; }
     string ToString();
 }
