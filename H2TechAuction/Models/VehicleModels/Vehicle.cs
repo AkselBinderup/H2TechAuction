@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.VehicleModels;
 
-public abstract class Vehicle : Base
+public abstract class Vehicle
 {
     public int VehicleId { get; set; }
     public string? Name { get; set; }

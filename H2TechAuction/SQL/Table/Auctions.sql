@@ -5,7 +5,6 @@
 		VehicleId		INT NOT NULL,
 		AskingPrice		Decimal,
 		CurrentBid		Decimal,
-		BaseId			INT,
 		ExpirationDate	DateTime,
 		IsActive		Bit
 );

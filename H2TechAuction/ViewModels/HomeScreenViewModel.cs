@@ -38,22 +38,19 @@ public class HomeScreenViewModel : ViewModelBase
         var auctionData = auctionRepo.ReadAll(0);
 
         //DBTODO
-        _yourAuctions = new ObservableCollection<CurrentBidModel>(data);
 
         var aucData = new ObservableCollection<CurrentBidModel>();
         foreach (var auction in auctionData)
         {
-            // Create a new instance of CurrentBidModel
             var currentBidModel = new CurrentBidModel
             {
                 Name = auction.Vehicle.Name, 
                 Year = auction.Vehicle.ModelYear.ToString(),
                 Bid = auction.CurrentBid.ToString() 
             };
-
             aucData.Add(currentBidModel);
         }
-
+        _yourAuctions = new ObservableCollection<CurrentBidModel>(data);
         _currentAuctions = new ObservableCollection<CurrentBidModel>(aucData);
 
         RowSelectedCommand = ReactiveCommand.Create<CurrentBidModel>(OnRowSelected);
