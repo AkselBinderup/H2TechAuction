@@ -6,7 +6,7 @@ DROP PROCEDURE IF EXISTS GetUserBidHistory;
 
 GO
 
-CREATE PROCEDURE GetUserBidHistoy
+CREATE PROCEDURE GetUserBidHistory
 (
 	@UserId		INT
 )

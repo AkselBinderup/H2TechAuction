@@ -1,6 +1,7 @@
 ﻿using Avalonia.Collections;
 using H2TechAuction.Models.AuctionModels;
 using H2TechAuction.Models.DatabaseRepositories;
+using H2TechAuction.Models.UserModels;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,7 @@ public class HomeScreenViewModel : ViewModelBase
     public HomeScreenViewModel()
     {
         BidHistoryRepository bidRepo = new();
-        var data = bidRepo.ReadAll(LoginScreenViewModel.User.UserId);
+        var data = bidRepo.ReadAll(User.UserId);
         AuctionRepository auctionRepo = new();
         var auctionData = auctionRepo.ReadAll(0);
 

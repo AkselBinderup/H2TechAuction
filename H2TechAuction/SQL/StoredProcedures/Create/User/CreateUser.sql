@@ -8,8 +8,8 @@ GO
 
 
 CREATE PROCEDURE CreateUser (
-	@Username TEXT,
-	@Password Text,
+	@Username NVARCHAR(100),
+	@Password NVARCHAR(255),
 	@CorporateUser Bit,
 	@ZipCode NVARCHAR(20),
 	@Balance Decimal
@@ -17,21 +17,20 @@ CREATE PROCEDURE CreateUser (
 AS
 BEGIN
 
-DECLARE @sql Text
+DECLARE @sql NVARCHAR(MAX)
 
-SET @sql = 'IF NOT EXISTS (SELECT * FROM sys.server_principals WHERE name = ' + @Username + ')
-			BEGIN
-			CREATE Login ' + @Username + '
-			WITH PASSWORD = ''' + @Password + ''',
-			DEFAULT_DATABASE=''H2TechAuction''
-			CREATE USER ' + @Username + ' FOR LOGIN ' + @Username + '
-			END'
-EXEC @sql;
+--SET @sql = 'IF NOT EXISTS (SELECT * FROM sys.server_principals WHERE name = [' + @Username + '])
+--			BEGIN
+--			CREATE Login [' + @Username + ']
+--			WITH PASSWORD =[' + @Password + '],
+--			DEFAULT_DATABASE=''H2TechAuction''
+--			CREATE USER [' + @Username + '] FOR LOGIN [' + @Username + ']
+--			END'
+--EXEC @sql;
 
 INSERT INTO Users (Username, Balance, CorporateUser, ZipCode) VALUES (@Username, @Balance, @CorporateUser, @ZipCode)
 
-EXEC sp_addrolemember 'AuctionUser', @Username;
+--EXEC sp_addrolemember 'AuctionUser', @Username;
 
 
 END
-GO;

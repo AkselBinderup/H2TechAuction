@@ -26,6 +26,7 @@ CREATE TABLE Vehicle (
 
 CREATE TABLE Users (
 	Id INT PRIMARY KEY IDENTITY(1,1),
+	Username NVARCHAR(50),
 	ZipCode NVARCHAR(20),
 	Balance Decimal,
 	CorporateUser Bit,
@@ -38,23 +39,18 @@ CREATE TABLE Auctions (
 		VehicleId		INT NOT NULL,
 		AskingPrice		Decimal,
 		CurrentBid		Decimal,
-		BaseId			INT,
 		ExpirationDate	DATETIME,
-		IsActive		Bit
+		IsActive		Bit DEFAULT 1,
+		FOREIGN KEY (SellerId) REFERENCES Users(Id),
+		FOREIGN KEY (HighestBidderId) REFERENCES Users(Id),
+		FOREIGN KEY (VehicleId) REFERENCES Vehicle(Id)
 );
-
-CREATE TABLE Base( 
-	Id INT PRIMARY KEY IDENTITY(1,1),
-	CreatedAt	DATETIME DEFAULT GETUTCDATE(),
-	UpdatedAt	DATETIME);
 
 CREATE TABLE BidHistory (
 		Id INT PRIMARY KEY IDENTITY(1,1),
 		Bid Decimal,
 		UserId INT,
 		AuctionId Int,
-		BaseId INT,
-		FOREIGN KEY (BaseId) REFERENCES Base(Id),
 		FOREIGN KEY (UserId) REFERENCES Users (Id),
 		FOREIGN KEY (AuctionId) REFERENCES Auctions (Id) );
 

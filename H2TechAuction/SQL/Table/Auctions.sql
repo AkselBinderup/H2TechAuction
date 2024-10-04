@@ -5,7 +5,9 @@
 		VehicleId		INT NOT NULL,
 		AskingPrice		Decimal,
 		CurrentBid		Decimal,
-		BaseId			INT,
 		ExpirationDate	DateTime,
-		IsActive		Bit
+		IsActive		Bit DEFAULT 1
+		FOREIGN KEY (SellerId) REFERENCES Users(Id),
+		FOREIGN KEY (HighestBidderId) REFERENCES Users(Id),
+		FOREIGN KEY (VehicleId) REFERENCES Vehicle(Id)
 );
