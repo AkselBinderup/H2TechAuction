@@ -14,7 +14,7 @@ CREATE PROCEDURE CreateTruck(
 		@V_Odometer	INT,
 		@V_ModelYear	INT,
 		@V_Towinghitch	Bit,
-		@V_LicensePlate	INT,
+		@V_LicensePlate	NVARCHAR(15),
 		@V_EngineSize	Decimal,
 		@V_FuelEconomy	INT,
 		@V_FuelCapacity	INT,

@@ -32,7 +32,7 @@ public class HomeScreenViewModel : ViewModelBase
     public HomeScreenViewModel()
     {
         AuctionRepository repo = new();
-        var data = repo.ReadAll();
+        var data = repo.ReadAll(0);
 
         //DBTODO
         //_yourAuctions = new ObservableCollection<CurrentBidModel>(data)

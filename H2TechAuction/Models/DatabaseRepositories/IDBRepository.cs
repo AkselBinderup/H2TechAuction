@@ -9,8 +9,8 @@ namespace H2TechAuction.Models.DatabaseRepositories;
 public interface IDBRepository<T>
 {
     bool Create(T Input);
-    bool Update(T Input, int id);
+    bool Update(T Input, int Id);
     bool Delete(int Id);
-    T Read();
-    List<T> ReadAll();
+    T Read(int Id);
+    List<T> ReadAll(int Id);
 }

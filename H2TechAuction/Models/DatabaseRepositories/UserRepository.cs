@@ -13,6 +13,7 @@ public class UserRepository : CommonDBModule<User>, IDBRepository<User>
     {
         //DBTODO
         return ExecuteCommand("");
+
     }
 
     public bool Delete(int Id)
@@ -20,12 +21,7 @@ public class UserRepository : CommonDBModule<User>, IDBRepository<User>
         throw new NotImplementedException();
     }
 
-    User IDBRepository<User>.Read()
-    {
-        throw new NotImplementedException();
-    }
-
-    public List<User> ReadAll()
+    public List<User> ReadAll(int Id)
     {
         throw new NotImplementedException();
     }
@@ -36,6 +32,11 @@ public class UserRepository : CommonDBModule<User>, IDBRepository<User>
     }
 
     public bool Update(User Input, int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public User Read(int Id)
     {
         throw new NotImplementedException();
     }
