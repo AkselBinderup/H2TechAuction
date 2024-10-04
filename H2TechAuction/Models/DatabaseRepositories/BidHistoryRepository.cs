@@ -20,7 +20,7 @@ public class BidHistoryRepository : CommonDBModule<CurrentBidModel>, IDBReposito
 
     public bool Create(CurrentBidModel Input)
     {
-        return ExecuteCommand($"EXEC CreateBid({Input.AuctionId}, {User.UserId}, {Input.CurrentBid})");
+        return ExecuteCommand($"EXEC CreateBid({Input.AuctionId}, {"User.UserId"}, {Input.Bid})");
     }
 
     public bool Update(CurrentBidModel Input, int id)
@@ -29,6 +29,11 @@ public class BidHistoryRepository : CommonDBModule<CurrentBidModel>, IDBReposito
     }
 
     public CurrentBidModel Read()
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<CurrentBidModel> ReadAll()
     {
         throw new NotImplementedException();
     }

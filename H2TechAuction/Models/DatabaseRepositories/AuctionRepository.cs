@@ -17,7 +17,8 @@ public class AuctionRepository : CommonDBModule<Action>, IDBRepository<Auction>
 
     public bool Create(Auction Input)
     {
-        return ExecuteCommand($"EXEC CreateAuction({Input.Vehicle.Id}, {User.UserId}, {Input.MinimumAmount})");
+        //private or corporate userid
+        return ExecuteCommand($"EXEC CreateAuction({Input.AuctionId}, {"UserId"}, {Input.MinimumAmount})");
     }
     public List<Auction> ReadAll()
     {
@@ -30,11 +31,7 @@ public class AuctionRepository : CommonDBModule<Action>, IDBRepository<Auction>
         return ExecuteCommand($"EXEC UpdateAuction({id}, {Input.MinimumAmount}");
     }
 
-    List<Auction> IDBRepository<Auction>.Read()
-    {
-        throw new NotImplementedException();
-    }
-    public List<CurrentBidModel> ReadBidHistory(User user)
+    public Auction Read()
     {
         throw new NotImplementedException();
     }

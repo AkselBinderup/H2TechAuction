@@ -12,7 +12,7 @@ public abstract class User : Base, IUser
 {    public string? UserName { get; set; }
     public string PostalCode { get; set; }
     
-    public static int UserId { get; set; }
+    public int UserId { get; set; }
 
     public override string ToString()
     {
