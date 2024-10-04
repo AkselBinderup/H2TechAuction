@@ -14,13 +14,12 @@ namespace H2TechAuction.Models.DatabaseRepositories;
 
 public partial class CommonDBModule <T>
 {
-    //path To connectionString 
-    private readonly string JsonPath = @"MainProgram\Client\appsettings.json";
+    private readonly string JsonPath = @"H2TechAuction\appsettings.json";
     protected SqlConnection GetConnection()
     {
         var JsonContent = File.ReadAllText(JsonPath);
-        JObject keys = (JObject)JsonConvert.DeserializeObject(JsonContent);
-        var Environment = keys["ConnectionStrings"]["Dev"].Value<string>();
+        JObject? keys = (JObject?)JsonConvert.DeserializeObject(JsonContent);
+        var Environment = keys?["ConnectionStrings"]?["Dev"]?.Value<string>();
         var conn = new SqlConnection(Environment);
         conn.Open();
         return conn;
@@ -32,6 +31,20 @@ public partial class CommonDBModule <T>
         var res = Command.ExecuteNonQuery() > 0;
         conn.Close();
         return res;
+    }
+    protected async Task<bool> ExecuteReaderWithParametersAsync(SqlCommand command, string field, string comparisonValue)
+    {
+        using var conn = GetConnection();
+        command.Connection = conn;
+        using var reader = await command.ExecuteReaderAsync();
+        if (reader.Read())
+        {
+            var fieldValue = reader[field].ToString();
+            var comp = comparisonValue;
+
+            return fieldValue == comp;
+        }
+        return false;
     }
 
     protected List<T> ExecuteReader<T>(SqlCommand? command) where T : new()

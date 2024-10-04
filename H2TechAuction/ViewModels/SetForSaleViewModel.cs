@@ -157,7 +157,7 @@ public class SetForSaleViewModel : ViewModelBase
             SelectedVehicle.Fuel = Vehicle;  
             SelectedVehicle.KilometerLiter = KilometerLiter;
             SelectedVehicle.EnergyClass = energy.DetermineClass(Year, Vehicle, KilometerLiter);
-            auctionRepository.Create(new Auction(SelectedVehicle, new PrivateUser(""), 0));
+            auctionRepository.Create(new Auction(SelectedVehicle, LoginScreenViewModel.User, StartingBid));
             //DBTODO
             vehicleRepo.Create(SelectedVehicle);
         }

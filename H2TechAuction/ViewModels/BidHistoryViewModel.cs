@@ -22,6 +22,7 @@ public class BidHistoryViewModel : ViewModelBase
         //AuctionRepository repo = new();
 
         //DBTODO
+        
         //var bidHistory = repo.ReadBidHistory(new PrivateUser(""));
         //BidHistory = new ObservableCollection<CurrentBidModel>(bidHistory);
         

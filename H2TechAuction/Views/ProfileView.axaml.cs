@@ -11,6 +11,7 @@ public partial class ProfileView : UserControl
     public ProfileView()
     {
         InitializeComponent();
+        DataContext = new ProfileViewModel();
     }
     private void BackButton_click(object sender, RoutedEventArgs e)
     {

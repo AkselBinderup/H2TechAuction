@@ -1,5 +1,6 @@
 ﻿using H2TechAuction.Models.DatabaseRepositories;
 using H2TechAuction.Models.UserModels;
+using H2TechAuction.Models.UserModels.Generators;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.SqlServer.Server;
 using ReactiveUI;
@@ -114,18 +115,24 @@ public class RegisterScreenViewModel : ViewModelBase
             IsErrorMessageVisible = false;
             ErrorMessage = null;
 
+
             UserRepository repo = new();
             if(IsCorporateSelected)
             {
-                //DBTODO
-                repo.Create(new CorporateUser(0, IdentificationValue));
+                repo.Create(new CorporateUser(0, IdentificationValue)
+                {
+                    UserName = Username,
+                    Password = PasswordHash.HashPassword(Password)
+                });
             }
             else if(IsPrivateSelected)
             {
-                //DBTODO
-                repo.Create(new PrivateUser(IdentificationValue));
+                repo.Create(new PrivateUser(IdentificationValue)
+                {
+                    UserName = Username,
+                    Password = PasswordHash.HashPassword(Password)
+                });
             }
-
             MainWindowViewModel.Instance?.SetViewModel(new LoginScreenViewModel());
         }
     }
