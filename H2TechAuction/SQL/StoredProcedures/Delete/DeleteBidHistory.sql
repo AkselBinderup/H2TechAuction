@@ -20,4 +20,4 @@ BEGIN
 
 END;
 
---Sat til at køre hver uge ved midnat
+--Sat til at køre hver dag ved midnat
