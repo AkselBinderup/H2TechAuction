@@ -13,13 +13,13 @@ using System.Threading.Tasks;
 namespace H2TechAuction.Models.DatabaseRepositories;
 public class UserRepository : CommonDBModule<User>, IDBRepository<User>
 {
-    public async Task<bool> ValidateUser(string? username, string? password)
+    public bool ValidateUser(string? username, string? password)
     {
         try
         {
-            SqlCommand cmd = new("SELECT PasswordHash FROM Users WHERE Username = @username");
+            SqlCommand cmd = new("SELECT Password FROM Users WHERE Username = @username");
             cmd.Parameters.AddWithValue("@username", username);
-            return await ExecuteReaderWithParametersAsync(cmd, "PasswordHash", password);
+            return ExecuteReaderWithParametersAsync(cmd, "Password", password);
         }
         catch (Exception ex)
         {

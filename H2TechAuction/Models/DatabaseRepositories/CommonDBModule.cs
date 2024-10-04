@@ -32,11 +32,11 @@ public partial class CommonDBModule <T>
         conn.Close();
         return res;
     }
-    protected async Task<bool> ExecuteReaderWithParametersAsync(SqlCommand command, string field, string comparisonValue)
+    protected bool ExecuteReaderWithParametersAsync(SqlCommand command, string field, string comparisonValue)
     {
         using var conn = GetConnection();
         command.Connection = conn;
-        using var reader = await command.ExecuteReaderAsync();
+        using var reader = command.ExecuteReader();
         if (reader.Read())
         {
             var fieldValue = reader[field].ToString();
@@ -64,7 +64,17 @@ public partial class CommonDBModule <T>
                 {
                     continue;
                 }
-                property.SetValue(instance, Convert.ChangeType(reader[property.Name], property.PropertyType));
+                var propertyType = property.PropertyType;
+
+                if (propertyType.IsEnum)
+                {
+                    var enumValue = Enum.ToObject(propertyType, reader[property.Name]);
+                    property.SetValue(instance, enumValue);
+                }
+                else
+                {
+                    property.SetValue(instance, Convert.ChangeType(reader[property.Name], propertyType));
+                }
             }
             result.Add(instance);
         }

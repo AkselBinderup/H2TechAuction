@@ -170,7 +170,6 @@ public class SetForSaleViewModel : ViewModelBase
             SelectedVehicle.EnergyClass = energy.DetermineClass(Year, Vehicle, KilometerLiter);
             SelectedVehicle.RegistrationNumber = RegNr;
             auctionRepository.Create(new Auction(SelectedVehicle, LoginScreenViewModel.User, StartingBid));
-            //DBTODO
             vehicleRepo.Create(SelectedVehicle);
         }
         //ændr private user til brugerens status please::: TODO TODOOO

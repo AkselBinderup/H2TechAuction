@@ -16,51 +16,65 @@ namespace H2TechAuction.ViewModels;
 
 public class HomeScreenViewModel : ViewModelBase
 {
-    private ObservableCollection<CurrentBidModel> _yourAuctions;
-    private ObservableCollection<CurrentBidModel> _currentAuctions;
+    private ObservableCollection<VisualAuction> _yourAuctions;
+    private ObservableCollection<VisualAuction> _currentAuctions;
 
-    public ObservableCollection<CurrentBidModel> YourAuctions
+    public ObservableCollection<VisualAuction> YourAuctions
     {
         get => _yourAuctions;
         private set => this.RaiseAndSetIfChanged(ref _yourAuctions, value); 
     }
-    public ReactiveCommand<CurrentBidModel, Unit> RowSelectedCommand { get; }
+    public ReactiveCommand<VisualAuction, Unit> RowSelectedCommand { get; }
 
-    public ObservableCollection<CurrentBidModel> CurrentAuctions
+    public ObservableCollection<VisualAuction> CurrentAuctions
     {
         get => _currentAuctions;
         private set => this.RaiseAndSetIfChanged(ref _currentAuctions, value); 
     }
     public HomeScreenViewModel()
     {
-        BidHistoryRepository bidRepo = new();
-        var data = bidRepo.ReadAll(LoginScreenViewModel.User.Id);
         AuctionRepository auctionRepo = new();
         var auctionData = auctionRepo.ReadAll(0);
+        VehicleRepository vehicleRepo = new();
+
 
         //DBTODO
 
-        var aucData = new ObservableCollection<CurrentBidModel>();
+        var aucData = new ObservableCollection<VisualAuction>();
+        var yourData = new ObservableCollection<VisualAuction>();
         foreach (var auction in auctionData)
         {
-            var currentBidModel = new CurrentBidModel
+            var vehData = vehicleRepo.ReadId(auction.VehicleId);
+            var bid = auction.CurrentBid == 0 ? auction.AskingPrice : auction.CurrentBid;
+            var currentBidModel = new VisualAuction
             {
-                Name = auction.Vehicle.Name, 
-                Year = auction.Vehicle.ModelYear.ToString(),
-                CurrentBid = auction.CurrentBid.ToString() 
-            };
-            aucData.Add(currentBidModel);
-        }
-        _yourAuctions = new ObservableCollection<CurrentBidModel>(data);
-        _currentAuctions = new ObservableCollection<CurrentBidModel>(aucData);
+                Name = vehData.Name,
+                Year = vehData.ModelYear.ToString(),
+                CurrentBid = bid.ToString(),
+                SellerId = auction.SellerId
 
-        RowSelectedCommand = ReactiveCommand.Create<CurrentBidModel>(OnRowSelected);
+            };
+
+            if(auction.SellerId == LoginScreenViewModel.User.Id)
+            {
+                yourData.Add(currentBidModel);
+            }
+            else
+            {
+                aucData.Add(currentBidModel);
+            }
+        }
+        
+        _yourAuctions = new ObservableCollection<VisualAuction>(yourData);
+        _currentAuctions = new ObservableCollection<VisualAuction>(aucData);
+
+        RowSelectedCommand = ReactiveCommand.Create<VisualAuction>(OnRowSelected);
     }
     public void OpenUserProfile()
     {
         MainWindowViewModel.Instance?.SetViewModel(new ProfileViewModel());
     }
-    private void OnRowSelected(CurrentBidModel selectedAuctionItem)
+    private void OnRowSelected(VisualAuction selectedAuctionItem)
     {
         Debug.WriteLine($"Selected Auction Item: {selectedAuctionItem.Name}");
     }

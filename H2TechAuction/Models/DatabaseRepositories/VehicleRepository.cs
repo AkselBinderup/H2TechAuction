@@ -1,6 +1,7 @@
 ﻿using H2TechAuction.Models.AuctionModels;
 using H2TechAuction.Models.UserModels;
 using H2TechAuction.Models.VehicleModels;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -88,6 +89,10 @@ public class VehicleRepository : CommonDBModule<Vehicle>, IDBRepository<Vehicle>
         throw new NotImplementedException();
     }
 
+    public Vehicle ReadId(int input) {
+        var sql = new SqlCommand($"SELECT * FROM Vehicle WHERE Id = {input}");
+        return ExecuteReader<Truck>(sql).First();
+    }
     public List<Vehicle> ReadAll(int Id)
     {
         throw new NotImplementedException();

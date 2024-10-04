@@ -4,6 +4,7 @@ using H2TechAuction.Models.UserModels.Generators;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reactive;
 using System.Text;
@@ -42,19 +43,27 @@ public class LoginScreenViewModel : ViewModelBase
     public void Login()
     {
         UserRepository repo = new();
-        var validateUser = repo.ValidateUser(Username, PasswordHash.HashPassword(Password));
-
-        User = repo.Read(Username, PasswordHash.HashPassword(Password));
-        //temp user
-       
-        //temp 
-        bool userExists = true;
-        //todo: remove
-        
-
-        if(userExists)
+        if(string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
         {
-            MainWindowViewModel.Instance?.SetViewModel(new HomeScreenViewModel());
+            Debug.WriteLine("error");
         }
+        else
+        {
+            var validateUser = repo.ValidateUser(Username, PasswordHash.HashPassword(Password));
+
+            User = repo.Read(Username, PasswordHash.HashPassword(Password));
+            //temp user
+
+
+            if (validateUser)
+            {
+                MainWindowViewModel.Instance?.SetViewModel(new HomeScreenViewModel());
+            }
+            else
+            {
+                Debug.WriteLine("Error");
+            }
+        }
+        
     }
 }

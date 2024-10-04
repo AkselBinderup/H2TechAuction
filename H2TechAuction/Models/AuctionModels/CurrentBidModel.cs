@@ -13,7 +13,5 @@ namespace H2TechAuction.Models.AuctionModels
         public string? CurrentBid { get; set; }
         public string? FinalBid { get; set; }
         public int AuctionId { get; set; }
-        public decimal BidAmount { get; set; }
-
     }
 }

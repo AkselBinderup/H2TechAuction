@@ -32,7 +32,7 @@ public partial class HomeScreenView : UserControl
     private void YourAuctionsSelectionChanged(object sender,  SelectionChangedEventArgs e)
     {
         var dataGrid = sender as DataGrid;
-        var selectedItem = dataGrid?.SelectedItem as CurrentBidModel; 
+        var selectedItem = dataGrid?.SelectedItem as VisualAuction; 
 
         if (selectedItem != null)
         {
@@ -43,7 +43,7 @@ public partial class HomeScreenView : UserControl
     private void CurrentAuctionsSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         var dataGrid = sender as DataGrid;
-        var selectedItem = dataGrid?.SelectedItem as CurrentBidModel;
+        var selectedItem = dataGrid?.SelectedItem as VisualAuction;
 
         if (selectedItem != null)
         {

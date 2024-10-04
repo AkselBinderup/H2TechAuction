@@ -28,6 +28,7 @@ CREATE TABLE Users (
 	Id INT PRIMARY KEY IDENTITY(1,1),
 	Username NVARCHAR(50),
 	ZipCode NVARCHAR(20),
+	[Password] NVARCHAR(255) NOT NULL,
 	Balance Decimal,
 	CorporateUser Bit,
 	);

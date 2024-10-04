@@ -9,7 +9,7 @@ GO
 
 CREATE PROCEDURE CreateUser (
 	@Username NVARCHAR(100),
-	@Password NVARCHAR(255),
+	@Password NVARCHAR(256),
 	@CorporateUser Bit,
 	@ZipCode NVARCHAR(20),
 	@Balance Decimal
@@ -28,7 +28,7 @@ DECLARE @sql NVARCHAR(MAX)
 --			END'
 --EXEC @sql;
 
-INSERT INTO Users (Username, Balance, CorporateUser, ZipCode) VALUES (@Username, @Balance, @CorporateUser, @ZipCode)
+INSERT INTO Users (Username, [Password], Balance, CorporateUser, ZipCode) VALUES (@Username, @Password, @Balance, @CorporateUser, @ZipCode)
 
 --EXEC sp_addrolemember 'AuctionUser', @Username;
 

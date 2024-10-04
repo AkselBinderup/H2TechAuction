@@ -9,6 +9,7 @@ namespace H2TechAuction.Models.AuctionModels;
 public class VisualAuction
 {
     public string? Name { get; set; }
-    public int Year {  get; set; }
-    public decimal CurrentBid { get; set; }
+    public string? Year {  get; set; }
+    public string? CurrentBid { get; set; }
+    public int? SellerId { get; set;}
 }

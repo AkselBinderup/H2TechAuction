@@ -23,6 +23,10 @@ public abstract class Vehicle
     public int FuelCapacity { get; set; }
     public EnergyClass EnergyClass { get; set; }
     public string? RegistrationNumber { get; set; }
+    public Vehicle()
+    {
+        
+    }
     public override string ToString()
     {
         return $"{Name} ({ModelYear})";

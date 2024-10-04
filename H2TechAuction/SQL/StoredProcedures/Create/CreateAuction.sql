@@ -8,7 +8,7 @@ GO
 
 CREATE PROCEDURE CreateAuction
 (
-	@VehicleId		INT,
+	@VehicleId		INT,	
 	@SellerId		INT,
 	@AskingPrice	Decimal
 )

@@ -19,9 +19,10 @@ SELECT TOP 20
 	a.AskingPrice,
 	v.Name,
 	v.ModelYear,
-	v.Id,
-	a.Id,
-	a.CurrentBid
+	v.Id AS VehicleId,
+	a.SellerId AS SellerId,
+	a.CurrentBid,
+	a.Id AS AuctionId 
 	FROM Auctions AS a
 	LEFT JOIN Vehicle AS v ON a.VehicleId = v.Id
 	WHERE a.IsActive = 1 AND
