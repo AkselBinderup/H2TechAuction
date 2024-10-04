@@ -24,6 +24,11 @@ public class VehicleRepository : CommonDBModule<Vehicle>, IDBRepository<Vehicle>
         throw new NotImplementedException();
     }
 
+    public List<Vehicle> ReadAll()
+    {
+        throw new NotImplementedException();
+    }
+
     public bool Update(Vehicle Input, int id)
     {
         throw new NotImplementedException();

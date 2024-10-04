@@ -1,9 +1,14 @@
 ﻿using H2TechAuction.Models.AuctionModels;
+using H2TechAuction.Models.UserModels;
+using Microsoft.Data.SqlClient;
 using System;
+using System.Data;
 using System.Collections.Generic;
+using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Splat.ModeDetection;
 
 namespace H2TechAuction.Models.DatabaseRepositories;
 public class BidHistoryRepository : CommonDBModule<CurrentBidModel>, IDBRepository<CurrentBidModel>
@@ -15,7 +20,7 @@ public class BidHistoryRepository : CommonDBModule<CurrentBidModel>, IDBReposito
 
     public bool Create(CurrentBidModel Input)
     {
-        throw new NotImplementedException();
+        return ExecuteCommand($"EXEC CreateBid({Input.AuctionId}, {"User.UserId"}, {Input.Bid})");
     }
 
     public bool Update(CurrentBidModel Input, int id)
@@ -27,4 +32,10 @@ public class BidHistoryRepository : CommonDBModule<CurrentBidModel>, IDBReposito
     {
         throw new NotImplementedException();
     }
+
+    public List<CurrentBidModel> ReadAll()
+    {
+        throw new NotImplementedException();
+    }
 }
+

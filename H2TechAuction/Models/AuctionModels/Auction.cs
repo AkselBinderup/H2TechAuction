@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.AuctionModels;
 
-public class Auction
+public class Auction : Base
 {
     public int AuctionId { get; set; }
     public Vehicle? Vehicle { get; set; }
     public User? Seller { get; set; } 
     public decimal MinimumAmount { get; set; } 
+
+    public decimal CurrentBid { get; set; }
 
     public Auction(Vehicle? vehicle, User? seller, decimal minAmount)
     {
@@ -21,6 +23,11 @@ public class Auction
         Seller = seller;
         MinimumAmount = minAmount;
     }
+
+    public Auction()
+    {
+    }
+
     public Auction SetForSale(Vehicle? vehicle, User? seller, decimal minAmount)
     {
         return new Auction(vehicle, seller, minAmount);

@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.UserModels;
 
-public abstract class User : IUser
+public abstract class User : Base, IUser
     
 {
     public string? UserName { get; set; }
     public string PostalCode { get; set; }
     public string? Password { get; set; }
     
-    public static int Id { get; set; }
+    public int UserId { get; set; }
 
     public override string ToString()
     {

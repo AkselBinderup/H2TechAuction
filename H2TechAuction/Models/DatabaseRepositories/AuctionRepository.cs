@@ -12,16 +12,13 @@ public class AuctionRepository : CommonDBModule<Action>, IDBRepository<Auction>
 {
     public bool Delete(int Id)
     {
-        throw new NotImplementedException();
+        return ExecuteCommand($"EXEC SetAuctionInactive({Id})");
     }
 
     public bool Create(Auction Input)
     {
-        return ExecuteCommand($"EXEC CreateAuction({Input.Vehicle.Id}, {User.Id}, {Input.MinimumAmount})");
-    }
-    public Auction Read()
-    {
-        throw new NotImplementedException();
+        //private or corporate userid
+        return ExecuteCommand($"EXEC CreateAuction({Input.AuctionId}, {"UserId"}, {Input.MinimumAmount})");
     }
     public List<Auction> ReadAll()
     {
@@ -31,9 +28,10 @@ public class AuctionRepository : CommonDBModule<Action>, IDBRepository<Auction>
     }
     public bool Update(Auction Input, int id)
     {
-        return ExecuteCommand($"EXEC UpdateAuction({Input.AuctionId}, ");
+        return ExecuteCommand($"EXEC UpdateAuction({id}, {Input.MinimumAmount}");
     }
-    public List<CurrentBidModel> ReadBidHistory(User user)
+
+    public Auction Read()
     {
         throw new NotImplementedException();
     }
