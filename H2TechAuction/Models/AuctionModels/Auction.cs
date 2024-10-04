@@ -14,7 +14,6 @@ public class Auction : Base
     public Vehicle? Vehicle { get; set; }
     public User? Seller { get; set; } 
     public decimal MinimumAmount { get; set; } 
-
     public decimal CurrentBid { get; set; }
 
     public Auction(Vehicle? vehicle, User? seller, decimal minAmount)

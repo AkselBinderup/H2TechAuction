@@ -31,7 +31,7 @@ public class UserRepository : CommonDBModule<User>, IDBRepository<User>
     {
         throw new NotImplementedException();
     }
-    public List<User> ReadAll()
+    public List<User> ReadAll(int i)
     {
         throw new NotImplementedException();
     }
@@ -62,7 +62,7 @@ public class UserRepository : CommonDBModule<User>, IDBRepository<User>
     {
         throw new NotImplementedException();
     }
-    public User Read()
+    public User Read(int i)
     {
         throw new NotImplementedException();
     }

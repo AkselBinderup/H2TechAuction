@@ -1,4 +1,5 @@
-﻿using H2TechAuction.Models.AuctionModels;
+﻿using Avalonia.Collections;
+using H2TechAuction.Models.AuctionModels;
 using H2TechAuction.Models.DatabaseRepositories;
 using ReactiveUI;
 using System;
@@ -31,25 +32,30 @@ public class HomeScreenViewModel : ViewModelBase
     }
     public HomeScreenViewModel()
     {
-        AuctionRepository repo = new();
-        var data = repo.ReadAll(0);
+        BidHistoryRepository bidRepo = new();
+        var data = bidRepo.ReadAll(LoginScreenViewModel.User.UserId);
+        AuctionRepository auctionRepo = new();
+        var auctionData = auctionRepo.ReadAll(0);
 
         //DBTODO
-        //_yourAuctions = new ObservableCollection<CurrentBidModel>(data);
+        _yourAuctions = new ObservableCollection<CurrentBidModel>(data);
 
-        _yourAuctions =
-            [
-                new () { Name = "Ford Escort", Year = "1983", Bid = "3.000" },
-                new () { Name = "Tesla Model 3", Year = "2016", Bid = "3.000" }
-            ];
+        var aucData = new ObservableCollection<CurrentBidModel>();
+        foreach (var auction in auctionData)
+        {
+            // Create a new instance of CurrentBidModel
+            var currentBidModel = new CurrentBidModel
+            {
+                Name = auction.Vehicle.Name, 
+                Year = auction.Vehicle.ModelYear.ToString(),
+                Bid = auction.CurrentBid.ToString() 
+            };
 
-        _currentAuctions =
-            [
-                new () { Name = "Ford Escort", Year = "1983", Bid = "3.000" },
-                new () { Name = "Tesla Model 3", Year = "2016", Bid = "3.000" },
-                new () { Name = "Scania R 730 V8", Year = "2019", Bid = "3.000" },
-                new () { Name = "Skoda Octavia", Year = "2008", Bid = "3.000" }
-            ];
+            aucData.Add(currentBidModel);
+        }
+
+        _currentAuctions = new ObservableCollection<CurrentBidModel>(aucData);
+
         RowSelectedCommand = ReactiveCommand.Create<CurrentBidModel>(OnRowSelected);
     }
     public void OpenUserProfile()
