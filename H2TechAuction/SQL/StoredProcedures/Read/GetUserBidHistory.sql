@@ -8,7 +8,7 @@ GO
 
 CREATE PROCEDURE GetUserBidHistory
 (
-	@UserId		INT
+	@UserId	INT
 )
 AS
 BEGIN;
@@ -24,7 +24,6 @@ SELECT
 	FROM BidHistory AS bh
 	LEFT JOIN Users AS u ON bh.UserId = u.Id
 	LEFT JOIN Auctions AS a ON bh.AuctionId = a.Id
-	LEFT JOIN Base AS b ON bh.BaseId = b.Id
 	LEFT JOIN Vehicle AS v ON a.VehicleId = v.Id
 	WHERE bh.UserId = @UserId
 

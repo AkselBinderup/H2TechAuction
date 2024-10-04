@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.AuctionModels;
 
-public class Auction : Base
+public class Auction
 {
     public int AuctionId { get; set; }
     public Vehicle? Vehicle { get; set; }

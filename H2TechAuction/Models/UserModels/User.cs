@@ -15,7 +15,7 @@ public abstract class User : Base, IUser
     public string? Password { get; set; }
     public decimal Balance { get; set; }
 
-    public static int UserId { get; set; }
+    public int Id { get; set; }
 
     public override string ToString()
     {
