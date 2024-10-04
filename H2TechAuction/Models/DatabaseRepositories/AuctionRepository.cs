@@ -1,6 +1,7 @@
 ﻿using H2TechAuction.Models.AuctionModels;
 using H2TechAuction.Models.UserModels;
 using H2TechAuction.ViewModels;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,18 +21,18 @@ public class AuctionRepository : CommonDBModule<Action>, IDBRepository<Auction>
         //private or corporate userid
         return ExecuteCommand($"EXEC CreateAuction({Input.AuctionId}, {"UserId"}, {Input.MinimumAmount})");
     }
-    public List<Auction> ReadAll()
+    public List<Auction> ReadAll(int Id)
     {
-        //reads all
-        return null; 
+        SqlCommand cmd = new SqlCommand($"EXEC GetActiveAuctions({Id})");
+        return ExecuteReader<Auction>(cmd);
 
     }
-    public bool Update(Auction Input, int id)
+    public bool Update(Auction Input, int Id)
     {
-        return ExecuteCommand($"EXEC UpdateAuction({id}, {Input.MinimumAmount}");
+        return ExecuteCommand($"EXEC UpdateAuction({Id}, {Input.MinimumAmount})");
     }
 
-    public Auction Read()
+    public Auction Read(int Id)
     {
         throw new NotImplementedException();
     }

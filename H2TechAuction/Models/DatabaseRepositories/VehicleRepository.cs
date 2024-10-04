@@ -83,18 +83,21 @@ public class VehicleRepository : CommonDBModule<Vehicle>, IDBRepository<Vehicle>
         throw new NotImplementedException();
     }
 
-    public Vehicle Read()
+    public Vehicle Read(int Id)
     {
         throw new NotImplementedException();
     }
 
-    public List<Vehicle> ReadAll()
+    public List<Vehicle> ReadAll(int Id)
     {
         throw new NotImplementedException();
     }
-
     public bool Update(Vehicle Input, int id)
     {
         throw new NotImplementedException();
+    }
+    public bool Delete(int Id, string discriminator)
+    {
+        return ExecuteCommand($"EXEC DeleteVehicle({Id}, {discriminator}");
     }
 }
