@@ -46,6 +46,7 @@ public partial class CommonDBModule <T>
         }
         return false;
     }
+    
 
     protected List<T> ExecuteReader<T>(SqlCommand? command) where T : new()
     {

@@ -33,7 +33,7 @@ public class HomeScreenViewModel : ViewModelBase
     public HomeScreenViewModel()
     {
         BidHistoryRepository bidRepo = new();
-        var data = bidRepo.ReadAll(LoginScreenViewModel.User.UserId);
+        var data = bidRepo.ReadAll(LoginScreenViewModel.User.Id);
         AuctionRepository auctionRepo = new();
         var auctionData = auctionRepo.ReadAll(0);
 

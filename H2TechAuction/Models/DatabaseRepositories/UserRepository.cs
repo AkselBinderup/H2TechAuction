@@ -62,8 +62,11 @@ public class UserRepository : CommonDBModule<User>, IDBRepository<User>
     {
         throw new NotImplementedException();
     }
-    public User Read(int i)
+    public User Read(string userName, string password)
     {
-        throw new NotImplementedException();
+        string query = "SELECT * FROM Users WHERE Username = @Username";
+        SqlCommand cmd = new(query);
+        cmd.Parameters.AddWithValue("@Username", userName);
+        return ExecuteReader<PrivateUser>(cmd).First();
     }
 }

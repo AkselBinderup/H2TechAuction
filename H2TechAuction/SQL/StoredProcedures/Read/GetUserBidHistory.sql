@@ -8,7 +8,7 @@ GO
 
 CREATE PROCEDURE GetUserBidHistoy
 (
-	@UserId		INT
+	@UserId	INT
 )
 AS
 BEGIN;

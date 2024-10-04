@@ -83,7 +83,7 @@ public class VehicleRepository : CommonDBModule<Vehicle>, IDBRepository<Vehicle>
         throw new NotImplementedException();
     }
 
-    public Vehicle Read(int Id)
+    public Vehicle Read(string obj, string obj2)
     {
         throw new NotImplementedException();
     }

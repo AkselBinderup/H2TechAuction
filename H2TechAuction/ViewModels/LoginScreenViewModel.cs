@@ -44,10 +44,9 @@ public class LoginScreenViewModel : ViewModelBase
         UserRepository repo = new();
         var validateUser = repo.ValidateUser(Username, PasswordHash.HashPassword(Password));
 
+        User = repo.Read(Username, PasswordHash.HashPassword(Password));
         //temp user
-        var user = new PrivateUser("2307066699");
-        user.UserName = "Micas";
-        User = user;
+       
         //temp 
         bool userExists = true;
         //todo: remove

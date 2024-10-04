@@ -32,7 +32,7 @@ public class AuctionRepository : CommonDBModule<Auction>, IDBRepository<Auction>
         return ExecuteCommand($"EXEC UpdateAuction({Id}, {Input.MinimumAmount})");
     }
 
-    public Auction Read(int Id)
+    public Auction Read(string obj, string obj2)
     {
         throw new NotImplementedException();
     }

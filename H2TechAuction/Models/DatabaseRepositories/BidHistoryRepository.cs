@@ -28,14 +28,14 @@ public class BidHistoryRepository : CommonDBModule<CurrentBidModel>, IDBReposito
         throw new NotImplementedException();
     }
 
-    public CurrentBidModel Read(int Id)
+    public CurrentBidModel Read(string obj, string obj2)
     {
         throw new NotImplementedException();
     }
 
     public List<CurrentBidModel> ReadAll(int Id)
     {
-        SqlCommand cmd = new SqlCommand($"EXEC GetUserBidHistory({Id})");
+        SqlCommand cmd = new ($"EXEC GetUserBidHistory @UserId = 1");
         return ExecuteReader<CurrentBidModel>(cmd);
     }
 }
