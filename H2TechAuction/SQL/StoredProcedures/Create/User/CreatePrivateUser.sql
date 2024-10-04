@@ -2,6 +2,10 @@
 
 GO
 
+DROP PROCEDURE IF EXISTS CreatePrivateUser;
+
+GO
+
 CREATE PROCEDURE CreatePrivateUser(
 	@Username	NVARCHAR(100),
 	@Password	NVARCHAR(100),

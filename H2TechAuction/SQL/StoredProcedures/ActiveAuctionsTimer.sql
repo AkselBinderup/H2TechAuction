@@ -4,7 +4,7 @@ GO
 
 DROP PROCEDURE IF EXISTS ActiveAuctionsTimer
 
-GO;
+GO
 
 CREATE PROCEDURE ActiveAuctionsTimer
 AS

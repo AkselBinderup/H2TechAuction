@@ -2,6 +2,10 @@
 
 GO
 
+DROP PROCEDURE IF EXISTS CreateCorporateUser;
+
+GO
+
 CREATE PROCEDURE CreateCorporateUser(
 	@Username	NVARCHAR(100),
 	@Password	NVARCHAR(100),

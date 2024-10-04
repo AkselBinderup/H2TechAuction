@@ -1,5 +1,10 @@
-﻿DROP PROCEDURE IF EXISTS UpdateBaseReference
-GO;
+﻿USE H2TechAuction
+
+GO
+
+DROP PROCEDURE IF EXISTS UpdateBaseReference
+
+GO
 
 CREATE PROCEDURE UpdateBaseReference(@BaseId	INT)
 AS
