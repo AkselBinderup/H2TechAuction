@@ -19,7 +19,7 @@ public class AuctionRepository : CommonDBModule<Auction>, IDBRepository<Auction>
     public bool Create(Auction Input)
     {
         //private or corporate userid
-        return ExecuteCommand($"EXEC CreateAuction({Input.AuctionId}, {"UserId"}, {Input.MinimumAmount})");
+        return ExecuteCommand($"EXEC CreateAuction({Input.Id}, {"UserId"}, {Input.AskingPrice})");
     }
     public List<Auction> ReadAll(int Id)
     {
@@ -29,7 +29,7 @@ public class AuctionRepository : CommonDBModule<Auction>, IDBRepository<Auction>
     }
     public bool Update(Auction Input, int Id)
     {
-        return ExecuteCommand($"EXEC UpdateAuction({Id}, {Input.MinimumAmount})");
+        return ExecuteCommand($"EXEC UpdateAuction({Id}, {Input.AskingPrice})");
     }
 
     public Auction Read(string obj, string obj2)

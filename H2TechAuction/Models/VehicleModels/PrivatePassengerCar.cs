@@ -1,12 +1,12 @@
 ﻿namespace H2TechAuction.Models.VehicleModels;
 public class PrivatePassengerCar : PassengerCar
 {
-    public bool IsofixMount { get; set; }
+    public bool IsofixMounts { get; set; }
     //DB
 
     public PrivatePassengerCar(bool isofixMount)
     {
-        IsofixMount = isofixMount;
+        IsofixMounts = isofixMount;
     }
 
     public override string ToString()

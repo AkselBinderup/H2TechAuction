@@ -9,7 +9,7 @@ namespace H2TechAuction.Models.VehicleModels;
 
 public abstract class PassengerCar : Vehicle
 {
-    public int AmountOfSeats { get; set; }
+    public int SeatCapacity { get; set; }
     public int TrunkLength { get; set; }
     public int TrunkWidth { get; set; }
     public int TrunkHeight { get; set; }

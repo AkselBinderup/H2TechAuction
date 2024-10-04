@@ -20,7 +20,7 @@ public class BidHistoryRepository : CommonDBModule<CurrentBidModel>, IDBReposito
 
     public bool Create(CurrentBidModel Input)
     {
-        return ExecuteCommand($"EXEC CreateBid({Input.AuctionId}, {"User.UserId"}, {Input.Bid})");
+        return ExecuteCommand($"EXEC CreateBid({Input.AuctionId}, {"User.UserId"}, {Input.CurrentBid})");
     }
 
     public bool Update(CurrentBidModel Input, int id)

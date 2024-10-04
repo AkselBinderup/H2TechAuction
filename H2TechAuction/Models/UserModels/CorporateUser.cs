@@ -4,7 +4,7 @@ namespace H2TechAuction.Models.UserModels;
 public class CorporateUser : User
 {
     public decimal Credit { get; set; }
-    public string? CvrNumber { get; set; }
+    public string? EAN { get; set; }
 
     public CorporateUser()
     {
@@ -14,7 +14,7 @@ public class CorporateUser : User
     {
         Credit = credit;
         if (CVRValidation.ValidateCvrNumber(cvrNumber))
-            CvrNumber = cvrNumber;
+            EAN = cvrNumber;
 
 
         //db connection...
@@ -22,6 +22,6 @@ public class CorporateUser : User
     public override string ToString()
     {
         return $"Credit: {Credit} " +
-            $"CVRNumber: {CvrNumber}";
+            $"CVRNumber: {EAN}";
     }
 }

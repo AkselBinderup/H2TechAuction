@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.UserModels;
 
-public abstract class User : Base, IUser
+public abstract class User : IUser
     
 {
-    public string? UserName { get; set; }
-    public string PostalCode { get; set; }
+    public string? Username { get; set; }
+    public string ZipCode { get; set; }
     public string? Password { get; set; }
     public decimal Balance { get; set; }
 

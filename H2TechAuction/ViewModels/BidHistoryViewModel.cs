@@ -29,10 +29,10 @@ public class BidHistoryViewModel : ViewModelBase
         
         BidHistory =
         [
-            new() { Name = "Ford Escort", Year = "1983", Bid = "3.000", FinalBid = "3.500" },
-            new() { Name = "Tesla Model 3", Year = "2016", Bid = "800.000", FinalBid = "WON" },
-            new() { Name = "Scania R 730 V8", Year = "2019", Bid = "-", FinalBid = "-" },
-            new() { Name = "Skoda Octavia", Year = "2008", Bid = "-", FinalBid = "-" }
+            new() { Name = "Ford Escort", Year = "1983", CurrentBid = "3.000", FinalBid = "3.500" },
+            new() { Name = "Tesla Model 3", Year = "2016", CurrentBid = "800.000", FinalBid = "WON" },
+            new() { Name = "Scania R 730 V8", Year = "2019", CurrentBid = "-", FinalBid = "-" },
+            new() { Name = "Skoda Octavia", Year = "2008", CurrentBid = "-", FinalBid = "-" }
         ];
     }
 }

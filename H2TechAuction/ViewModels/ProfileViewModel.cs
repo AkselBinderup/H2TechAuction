@@ -29,6 +29,6 @@ public class ProfileViewModel : ViewModelBase
     }
     public ProfileViewModel()
     {  
-        Name = LoginScreenViewModel.User.UserName;
+        Name = LoginScreenViewModel.User.Username;
     }  
 }

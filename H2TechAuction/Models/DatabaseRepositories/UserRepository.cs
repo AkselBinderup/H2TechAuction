@@ -41,18 +41,18 @@ public class UserRepository : CommonDBModule<User>, IDBRepository<User>
         {
             var privateUser = (PrivateUser)input;
             return ExecuteCommand(
-                $"EXEC CreatePrivateUser @Username = '{privateUser.UserName}', " +
+                $"EXEC CreatePrivateUser @Username = '{privateUser.Username}', " +
                 $"@Password = '{privateUser.Password}', @CprNumber = '{privateUser.CPRNumber}', " +
-                $"@ZipCode = '{privateUser.PostalCode}', @Balance = {privateUser.Balance}"
+                $"@ZipCode = '{privateUser.ZipCode}', @Balance = {privateUser.Balance}"
             );
         }
         else if (input.GetType() == typeof(CorporateUser))
         {
             var corporateUser = (CorporateUser)input;
             return ExecuteCommand(
-                $"EXEC CreateCorporateUser @Username = '{corporateUser.UserName}', " +
-                $"@Password = '{corporateUser.Password}', @EAN = '{corporateUser.CvrNumber}', " +
-                $"@Credit = {corporateUser.Credit}, @ZipCode = '{corporateUser.PostalCode}', " +
+                $"EXEC CreateCorporateUser @Username = '{corporateUser.Username}', " +
+                $"@Password = '{corporateUser.Password}', @EAN = '{corporateUser.EAN}', " +
+                $"@Credit = {corporateUser.Credit}, @ZipCode = '{corporateUser.ZipCode}', " +
                 $"@Balance = {corporateUser.Balance}"
             );
         }

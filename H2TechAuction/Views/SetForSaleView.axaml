@@ -42,6 +42,8 @@
 					   HorizontalAlignment="Left" VerticalAlignment="Center"
 					   Margin="0,0,20,0"/>
 			<ComboBox Grid.Row="8"
+					  HorizontalAlignment="Center"
+					  VerticalAlignment="Center"
 					  SelectedItem="{Binding Year, Mode=TwoWay}"
 					  Grid.Column="1" Width="250" Margin="0,0,0,10"
 					  PlaceholderText="Select"/>
@@ -55,19 +57,13 @@
 			
 			<TextBlock Grid.Row="12" Grid.Column="0" Text="Close Auction" HorizontalAlignment="Left" VerticalAlignment="Center"
 					   Margin="0,0,20,0"/>
-			<!--<DatePicker Grid.Row="12" Grid.Column="1" Margin="0,0,0,10"/>-->
-			<Grid ColumnDefinitions="*,*" Grid.Row="14">
-				<Button Grid.Column="0" Click="BackButton_click" Content="Back" HorizontalAlignment="Stretch" Width="80" Margin="0,0,20,0"/>
-				<Button Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Set for sale!"
+			<DatePicker Grid.Row="12" Grid.Column="1" SelectedDate="{Binding CloseAuctionDate, Mode=TwoWay}" Margin="0,0,0,10"/>
+			
+				<Button Grid.Column="0" Grid.Row="14" Click="BackButton_click" Content="Back" HorizontalAlignment="Stretch" Width="80" Margin="0,0,20,0"/>
+				<Button Grid.Column="1" Grid.Row="14" HorizontalAlignment="Left" VerticalAlignment="Stretch" Content="Set for sale!"
 									Background="#4CAF50" Foreground="White" FontWeight="Bold" FontSize="16" Command="{Binding SellCarAction}"/>
 
-			</Grid>
-
 		</Grid>
-		
-		
-		
-
 		<Border Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Padding="10" Margin="10">
 			<Grid ColumnDefinitions="Auto, *" ShowGridLines="False"
 				  RowDefinitions="Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto"

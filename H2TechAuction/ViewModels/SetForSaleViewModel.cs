@@ -29,7 +29,13 @@ public class SetForSaleViewModel : ViewModelBase
     private VehicleTypes _selectedVehiclType;
     private Vehicle? _selectedVehicle;
     private int _fuelCapacity;
+    private DateTime _closeAuctionDate;
 
+    public DateTime CloseAuctionDate
+    {
+        get => _closeAuctionDate;
+        set => this.RaiseAndSetIfChanged(ref _closeAuctionDate, value);
+    }
     public VehicleTypes SelectedVehicleType
     {
         get => _selectedVehiclType;

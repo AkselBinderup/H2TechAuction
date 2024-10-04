@@ -63,7 +63,7 @@ public class BuyerOfAuctionViewModel : ViewModelBase
         }
         AuctionInfoToString = $"Fitting description";
         CarName = model.Name;
-        CurrentBid = $"Current Bid: {model.Bid}";
+        CurrentBid = $"Current Bid: {model.CurrentBid}";
         ImagePath = ImageHelper.LoadFromResource(new System.Uri("avares://H2TechAuction/Images/VehicleNotAvailable.jpg"));
     }
     

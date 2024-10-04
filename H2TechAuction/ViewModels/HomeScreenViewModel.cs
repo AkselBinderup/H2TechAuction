@@ -47,7 +47,7 @@ public class HomeScreenViewModel : ViewModelBase
             {
                 Name = auction.Vehicle.Name, 
                 Year = auction.Vehicle.ModelYear.ToString(),
-                Bid = auction.CurrentBid.ToString() 
+                CurrentBid = auction.CurrentBid.ToString() 
             };
             aucData.Add(currentBidModel);
         }

@@ -121,7 +121,7 @@ public class RegisterScreenViewModel : ViewModelBase
             {
                 repo.Create(new CorporateUser(0, IdentificationValue)
                 {
-                    UserName = Username,
+                    Username = Username,
                     Password = PasswordHash.HashPassword(Password)
                 });
             }
@@ -129,7 +129,7 @@ public class RegisterScreenViewModel : ViewModelBase
             {
                 repo.Create(new PrivateUser(IdentificationValue)
                 {
-                    UserName = Username,
+                    Username = Username,
                     Password = PasswordHash.HashPassword(Password)
                 });
             }

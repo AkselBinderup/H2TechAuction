@@ -10,17 +10,17 @@ namespace H2TechAuction.Models.AuctionModels;
 
 public class Auction
 {
-    public int AuctionId { get; set; }
+    public int Id { get; set; }
     public Vehicle? Vehicle { get; set; }
     public User? Seller { get; set; } 
-    public decimal MinimumAmount { get; set; } 
+    public decimal AskingPrice { get; set; } 
     public decimal CurrentBid { get; set; }
 
     public Auction(Vehicle? vehicle, User? seller, decimal minAmount)
     {
         Vehicle = vehicle;
         Seller = seller;
-        MinimumAmount = minAmount;
+        AskingPrice = minAmount;
     }
 
     public Auction()

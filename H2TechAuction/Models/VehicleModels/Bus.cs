@@ -12,9 +12,9 @@ public class Bus : HeavyVehicle
     public int Height { get; set; }
     public int Weight { get; set; }
     public int Length { get; set; }
-    public int AmountOfSeats { get; set; }
-    public int AmountOfBeds { get; set; }
-    public bool Toilet { get; set; }
+    public int SeatingCapacity { get; set; }
+    public int SleepingCapacity { get; set; }
+    public bool ToiletAvailable { get; set; }
 
     //    Bus klassen skal håndtere:
     // Kørekorttype: Er som udgangspunkt D.

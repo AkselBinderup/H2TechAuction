@@ -1,11 +1,11 @@
 ﻿namespace H2TechAuction.Models.Interfaces;
 public interface IUser
 {
-    string? UserName {  get; set; }
+    string? Username {  get; set; }
 
     int Id { get; set; }
 
-    string PostalCode { get; set; }
+    string ZipCode { get; set; }
     decimal Balance { get; set; }
     string ToString();
 }

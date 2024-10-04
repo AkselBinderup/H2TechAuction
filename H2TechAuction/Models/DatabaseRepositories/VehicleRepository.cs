@@ -22,10 +22,10 @@ public class VehicleRepository : CommonDBModule<Vehicle>, IDBRepository<Vehicle>
                 $"@V_EngineSize = {car.EngineSize}, @V_FuelEconomy = {car.KilometerLiter}, " +
                 $"@V_FuelCapacity = {car.FuelCapacity}, @V_Discriminator = '{nameof(PrivatePassengerCar)}', " +
                 $"@V_EnergyClass = '{car.EnergyClass}', @V_LicenseType = '{car.LicenseType}', " +
-                $"@PC_SeatCapacity = {car.AmountOfSeats}, @PC_TrunkWidth = {car.TrunkWidth}, " +
+                $"@PC_SeatCapacity = {car.SeatCapacity}, @PC_TrunkWidth = {car.TrunkWidth}, " +
                 $"@PC_TrunkHeight = {car.TrunkHeight}, @PC_TrunkLength = {car.TrunkLength}, " +
                 $"@PC_RequireCommercialLicense = {(car.RequireCommercialLicense ? 1 : 0)}, " +
-                $"@PC_TrunkDimensions = {car.TrunkDimensions}, @IsofixMounts = {(car.IsofixMount ? 1 : 0)}"
+                $"@PC_TrunkDimensions = {car.TrunkDimensions}, @IsofixMounts = {(car.IsofixMounts ? 1 : 0)}"
             );
         }
         else if (input.GetType() == typeof(ProfessionalPassengerCar))
@@ -38,7 +38,7 @@ public class VehicleRepository : CommonDBModule<Vehicle>, IDBRepository<Vehicle>
                 $"@V_EngineSize = {car.EngineSize}, @V_FuelEconomy = {car.KilometerLiter}, " +
                 $"@V_FuelCapacity = {car.FuelCapacity}, @V_Discriminator = '{nameof(ProfessionalPassengerCar)}', " +
                 $"@V_EnergyClass = '{car.EnergyClass}', @V_LicenseType = '{car.LicenseType}', " +
-                $"@PC_SeatCapacity = {car.AmountOfSeats}, @PC_TrunkWidth = {car.TrunkWidth}, " +
+                $"@PC_SeatCapacity = {car.SeatCapacity}, @PC_TrunkWidth = {car.TrunkWidth}, " +
                 $"@PC_TrunkHeight = {car.TrunkHeight}, @PC_TrunkLength = {car.TrunkLength}, " +
                 $"@PC_RequireCommercialLicense = {(car.RequireCommercialLicense ? 1 : 0)}, " +
                 $"@PC_TrunkDimensions = {car.TrunkDimensions}, @RollCage = {(car.RollCage ? 1 : 0)}, " +
@@ -57,7 +57,7 @@ public class VehicleRepository : CommonDBModule<Vehicle>, IDBRepository<Vehicle>
                 $"@V_LicensePlate = {truck.RegistrationNumber}, @V_EngineSize = {truck.EngineSize}, " +
                 $"@V_FuelEconomy = {truck.KilometerLiter}, @V_FuelCapacity = {truck.FuelCapacity}, " +
                 $"@V_Discriminator = '{nameof(Truck)}', @V_EnergyClass = '{truck.EnergyClass}', " +
-                $"@V_LicenseType = '{truck.LicenseType}', @LoadCapacity = {truck.Capacity}"
+                $"@V_LicenseType = '{truck.LicenseType}', @LoadCapacity = {truck.LoadCapacity}"
             );
         }
         else if (input.GetType() == typeof(Bus))
@@ -71,8 +71,8 @@ public class VehicleRepository : CommonDBModule<Vehicle>, IDBRepository<Vehicle>
                 $"@V_LicensePlate = {bus.RegistrationNumber}, @V_EngineSize = {bus.EngineSize}, " +
                 $"@V_FuelEconomy = {bus.KilometerLiter}, @V_FuelCapacity = {bus.FuelCapacity}, " +
                 $"@V_Discriminator = '{nameof(Bus)}', @V_EnergyClass = '{bus.EnergyClass}', " +
-                $"@V_LicenseType = '{bus.LicenseType}', @SeatingCapacity = {bus.AmountOfSeats}, " +
-                $"@SleepingCapacity = {bus.AmountOfBeds}, @ToiletAvailable = {(bus.Toilet ? 1 : 0)}"
+                $"@V_LicenseType = '{bus.LicenseType}', @SeatingCapacity = {bus.SeatingCapacity}, " +
+                $"@SleepingCapacity = {bus.SleepingCapacity}, @ToiletAvailable = {(bus.ToiletAvailable ? 1 : 0)}"
             );
         }
         return false;

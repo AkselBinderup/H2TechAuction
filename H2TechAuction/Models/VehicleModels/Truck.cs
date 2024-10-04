@@ -11,7 +11,7 @@ public class Truck : HeavyVehicle
     public int Height { get; set; }
     public int Weight { get; set; }
     public int Length { get; set; }
-    public int Capacity { get; set; } 
+    public int LoadCapacity { get; set; } 
     public LicenseType GetLicenseType()
     {
         if (TowingHitch)

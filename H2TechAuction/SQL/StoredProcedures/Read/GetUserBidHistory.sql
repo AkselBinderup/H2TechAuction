@@ -18,8 +18,7 @@ SET NOCOUNT ON
 SELECT
 	bh.Bid,
 	u.Username,
-	v.Name,
-	b.CreatedAt
+	v.Name
 	
 	FROM BidHistory AS bh
 	LEFT JOIN Users AS u ON bh.UserId = u.Id
