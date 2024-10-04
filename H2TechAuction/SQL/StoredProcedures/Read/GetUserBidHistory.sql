@@ -15,11 +15,11 @@ BEGIN;
 
 SET NOCOUNT ON
 
-SELECT
+	SELECT
 	bh.Bid,
 	u.Username,
 	v.Name,
-	b.CreatedAt
+	v.ModelYear
 	
 	FROM BidHistory AS bh
 	LEFT JOIN Users AS u ON bh.UserId = u.Id

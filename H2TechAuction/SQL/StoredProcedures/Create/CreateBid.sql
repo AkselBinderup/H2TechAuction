@@ -17,15 +17,12 @@ BEGIN;
 
 SET NOCOUNT ON
 
-DECLARE @BaseId INT;
-EXEC @BaseId = GetBaseReference
-
 IF @Bid < (SELECT CurrentBid FROM Auctions WHERE Id = @AuctionId)
 BEGIN;
 	THROW 51000, 'Bid must be higher than current bid', 1;
 END;
 
-INSERT INTO BidHistory (Bid, UserId, AuctionId, BaseId) VALUES (@Bid, @BidderId, @AuctionId, @BaseId)
+INSERT INTO BidHistory (Bid, UserId, AuctionId) VALUES (@Bid, @BidderId, @AuctionId)
 
 SET NOCOUNT OFF;
 
