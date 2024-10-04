@@ -14,13 +14,12 @@ namespace H2TechAuction.Models.DatabaseRepositories;
 
 public partial class CommonDBModule <T>
 {
-    //path To connectionString 
-    private readonly string JsonPath = @"MainProgram\Client\appsettings.json";
+    private readonly string JsonPath = @"H2TechAuction\appsettings.json";
     protected SqlConnection GetConnection()
     {
         var JsonContent = File.ReadAllText(JsonPath);
-        JObject keys = (JObject)JsonConvert.DeserializeObject(JsonContent);
-        var Environment = keys["ConnectionStrings"]["Dev"].Value<string>();
+        JObject? keys = (JObject?)JsonConvert.DeserializeObject(JsonContent);
+        var Environment = keys?["ConnectionStrings"]?["Dev"]?.Value<string>();
         var conn = new SqlConnection(Environment);
         conn.Open();
         return conn;

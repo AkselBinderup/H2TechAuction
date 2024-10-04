@@ -9,8 +9,10 @@ namespace H2TechAuction.Models.UserModels;
 
 public abstract class User : IUser
     
-{    public string? UserName { get; set; }
+{
+    public string? UserName { get; set; }
     public string PostalCode { get; set; }
+    public string? Password { get; set; }
     
     public static int Id { get; set; }
 
