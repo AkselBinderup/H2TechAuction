@@ -28,6 +28,7 @@ public class SetForSaleViewModel : ViewModelBase
     private bool _towBar;
     private VehicleTypes _selectedVehiclType;
     private Vehicle? _selectedVehicle;
+    private int _fuelCapacity;
 
     public VehicleTypes SelectedVehicleType
     {
@@ -135,7 +136,11 @@ public class SetForSaleViewModel : ViewModelBase
         get => _kilometerLiter;
         set => this.RaiseAndSetIfChanged(ref _kilometerLiter, value);
     }
-
+    public int FuelCapacity
+    {
+        get => _fuelCapacity;
+        set => this.RaiseAndSetIfChanged(ref _fuelCapacity, value);
+    }
     public bool TowBar
     {
         get => _towBar;
@@ -154,9 +159,10 @@ public class SetForSaleViewModel : ViewModelBase
             SelectedVehicle.ModelYear = Year;
             SelectedVehicle.TowingHitch = TowBar;
             SelectedVehicle.EngineSize = EngineSize;
-            SelectedVehicle.Fuel = Vehicle;  
+            SelectedVehicle.FuelCapacity = FuelCapacity;  
             SelectedVehicle.KilometerLiter = KilometerLiter;
             SelectedVehicle.EnergyClass = energy.DetermineClass(Year, Vehicle, KilometerLiter);
+            SelectedVehicle.RegistrationNumber = RegNr;
             auctionRepository.Create(new Auction(SelectedVehicle, LoginScreenViewModel.User, StartingBid));
             //DBTODO
             vehicleRepo.Create(SelectedVehicle);

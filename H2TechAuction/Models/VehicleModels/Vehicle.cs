@@ -20,8 +20,9 @@ public abstract class Vehicle : Base
     public LicenseType LicenseType { get; set; }
     public double EngineSize { get; set; }
     public int KilometerLiter { get; set; }
-    public string? Fuel { get; set; }
+    public int FuelCapacity { get; set; }
     public EnergyClass EnergyClass { get; set; }
+    public string? RegistrationNumber { get; set; }
     public override string ToString()
     {
         return $"{Name} ({ModelYear})";

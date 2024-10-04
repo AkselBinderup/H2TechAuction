@@ -15,15 +15,23 @@ public class UserRepository : CommonDBModule<User>, IDBRepository<User>
 {
     public async Task<bool> ValidateUser(string? username, string? password)
     {
-        SqlCommand cmd = new("SELECT PasswordHash FROM Users WHERE Username = @username");
-        cmd.Parameters.AddWithValue("@username", username);
-        return await ExecuteReaderWithParametersAsync(cmd, "PasswordHash" , password);
+        try
+        {
+            SqlCommand cmd = new("SELECT PasswordHash FROM Users WHERE Username = @username");
+            cmd.Parameters.AddWithValue("@username", username);
+            return await ExecuteReaderWithParametersAsync(cmd, "PasswordHash", password);
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine(ex);
+            return false;
+        }
     }
     public bool Delete(int Id)
     {
         throw new NotImplementedException();
     }
-    public List<User> ReadAll()
+    public List<User> ReadAll(int i)
     {
         throw new NotImplementedException();
     }
@@ -54,7 +62,7 @@ public class UserRepository : CommonDBModule<User>, IDBRepository<User>
     {
         throw new NotImplementedException();
     }
-    public User Read()
+    public User Read(int i)
     {
         throw new NotImplementedException();
     }

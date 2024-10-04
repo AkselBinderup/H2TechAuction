@@ -56,8 +56,13 @@
 			<TextBlock Grid.Row="12" Grid.Column="0" Text="Close Auction" HorizontalAlignment="Left" VerticalAlignment="Center"
 					   Margin="0,0,20,0"/>
 			<!--<DatePicker Grid.Row="12" Grid.Column="1" Margin="0,0,0,10"/>-->
-			<Button Grid.Row="14" Click="BackButton_click" Content="Back" HorizontalAlignment="Left" Width="80" Margin="0,0,20,0"/>
-			
+			<Grid ColumnDefinitions="*,*" Grid.Row="14">
+				<Button Grid.Column="0" Click="BackButton_click" Content="Back" HorizontalAlignment="Stretch" Width="80" Margin="0,0,20,0"/>
+				<Button Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Set for sale!"
+									Background="#4CAF50" Foreground="White" FontWeight="Bold" FontSize="16" Command="{Binding SellCarAction}"/>
+
+			</Grid>
+
 		</Grid>
 		
 		
@@ -65,7 +70,7 @@
 
 		<Border Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Padding="10" Margin="10">
 			<Grid ColumnDefinitions="Auto, *" ShowGridLines="False"
-				  RowDefinitions="Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto"
+				  RowDefinitions="Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto, 10, Auto"
 				  Margin="20">
 				<TextBlock Grid.Row="0" Grid.Column="0" Text="Vehicle Type"
 					   HorizontalAlignment="Left" VerticalAlignment="Center"
@@ -100,11 +105,15 @@
 									   Margin="0,0,20,0"/>
 				<TextBox Grid.Row="10" Grid.Column="1" Width="250" Text="{Binding KilometerLiter, Mode=TwoWay}" HorizontalAlignment="Left"  Margin="0,0,0,10"/>
 
-				
-				<TextBlock Grid.Row="12" Grid.Column="0" Text="Tow Bar"
+				<TextBlock Grid.Row="12" Text="Fuel Capacity" HorizontalAlignment="Left" VerticalAlignment="Center"
+									   Margin="0,0,20,0"/>
+
+				<TextBox Grid.Row="12" Grid.Column="1" Width="250" Text="{Binding FuelCapacity, Mode=TwoWay}" HorizontalAlignment="Left"  Margin="0,0,0,10"/>
+
+				<TextBlock Grid.Row="14" Grid.Column="0" Text="Tow Bar"
 									   HorizontalAlignment="Left" VerticalAlignment="Center"
 									   Margin="0,0,20,0"/>
-				<Grid ColumnDefinitions="*,*" Grid.Row="12" Grid.Column="1">
+				<Grid ColumnDefinitions="*,*" Grid.Row="14" Grid.Column="1">
 					<RadioButton Grid.Column="0"
 								 Content="Yes"
 								 IsChecked="{Binding TowBar, Mode=TwoWay}"
@@ -113,9 +122,7 @@
 								 Content="No"
 								 IsChecked="{Binding TowBar, Converter={StaticResource InverseBoolConverter}}"/>
 				</Grid>
-				<Button Grid.Row="14" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Set for sale!"
-						Background="#4CAF50" Foreground="White" FontWeight="Bold" FontSize="16" Command="{Binding SellCarAction}"/>
-
+				
 
 
 			</Grid>

@@ -14,6 +14,7 @@ public abstract class PassengerCar : Vehicle
     public int TrunkWidth { get; set; }
     public int TrunkHeight { get; set; }
     public int TrunkDimensions { get; set; }
+    public bool RequireCommercialLicense { get; set; }
 
     public PassengerCar()
     {
@@ -24,7 +25,7 @@ public abstract class PassengerCar : Vehicle
     }
     public LicenseType GetLicenseType()
     {
-        if (TowingHitch)
+        if (RequireCommercialLicense)
             return LicenseType.BE;
         else
             return LicenseType.B;

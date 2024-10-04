@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.DatabaseRepositories;
-public class AuctionRepository : CommonDBModule<Action>, IDBRepository<Auction>
+public class AuctionRepository : CommonDBModule<Auction>, IDBRepository<Auction>
 {
     public bool Delete(int Id)
     {
@@ -23,7 +23,7 @@ public class AuctionRepository : CommonDBModule<Action>, IDBRepository<Auction>
     }
     public List<Auction> ReadAll(int Id)
     {
-        SqlCommand cmd = new SqlCommand($"EXEC GetActiveAuctions({Id})");
+        SqlCommand cmd = new SqlCommand($"EXEC GetActiveAuctions");
         return ExecuteReader<Auction>(cmd);
 
     }

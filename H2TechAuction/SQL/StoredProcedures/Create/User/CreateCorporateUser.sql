@@ -25,4 +25,3 @@ INSERT INTO CorporateUsers (UserId, Credit, EAN) VALUES (@UserId, @Credit, @EAN)
 
 END;
 
-EXEC CreateCorporateUser(Username, password, EAN, Credit, ZipCode, Balance)
