@@ -14,7 +14,7 @@ namespace H2TechAuction.Models.DatabaseRepositories;
 
 public partial class CommonDBModule <T>
 {
-    private readonly string JsonPath = @"H2TechAuction\appsettings.json";
+    private readonly string JsonPath = @"..\..\..\appsettings.json";
     protected SqlConnection GetConnection()
     {
         var JsonContent = File.ReadAllText(JsonPath);
@@ -50,7 +50,7 @@ public partial class CommonDBModule <T>
     protected List<T> ExecuteReader<T>(SqlCommand? command) where T : new()
     {
         List<T> result = [];
-
+        command.Connection = GetConnection();
         using SqlDataReader reader = command.ExecuteReader();
 
         PropertyInfo[] properties = typeof(T).GetProperties();
