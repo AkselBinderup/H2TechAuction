@@ -15,7 +15,7 @@ CREATE PROCEDURE CreatePrivatePersonalCar(
 		@V_EngineSize	Decimal,
 		@V_FuelEconomy	INT,
 		@V_FuelCapacity	INT,
-		@V_Discriminator	NVARCHAR(50),
+		@V_Discriminator	VARCHAR(50),
 		@V_EnergyClass	NVARCHAR(10),
 		@V_LicenseType	NVARCHAR(10),
 		@PC_SeatCapacity	INT,

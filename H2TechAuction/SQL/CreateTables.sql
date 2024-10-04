@@ -39,6 +39,7 @@ CREATE TABLE Auctions (
 		AskingPrice		Decimal,
 		CurrentBid		Decimal,
 		BaseId			INT,
+		ExpirationDate	DATETIME,
 		IsActive		Bit
 );
 

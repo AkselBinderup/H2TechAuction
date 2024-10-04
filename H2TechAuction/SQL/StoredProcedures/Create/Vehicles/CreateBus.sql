@@ -14,7 +14,7 @@ CREATE PROCEDURE CreateBus(
 		@V_Odometer	INT,
 		@V_ModelYear	INT,
 		@V_Towinghitch	Bit,
-		@V_LicensePlate	NVARCHAR(15),
+		@V_LicensePlate	VARCHAR(15),
 		@V_EngineSize	Decimal,
 		@V_FuelEconomy	INT,
 		@V_FuelCapacity	INT,

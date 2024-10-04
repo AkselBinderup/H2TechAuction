@@ -8,8 +8,7 @@ GO
 
 CREATE PROCEDURE GetActiveAuctions
 (
-	@SearchText			NVARCHAR(100) = '',
-	@UserId				INT
+	@SearchText			NVARCHAR(100) = ''
 )
 AS
 BEGIN;
