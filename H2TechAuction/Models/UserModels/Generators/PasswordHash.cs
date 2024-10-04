@@ -9,7 +9,7 @@ namespace H2TechAuction.Models.UserModels.Generators;
 
 public class PasswordHash
 {
-    public static string HashPassword(string password)
+    public static string HashPassword(string? password)
     {
         using var sha256 = SHA256.Create();
         var passwordBytes = Encoding.UTF8.GetBytes(password);

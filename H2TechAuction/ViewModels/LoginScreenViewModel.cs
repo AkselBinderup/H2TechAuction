@@ -1,5 +1,6 @@
 ﻿using H2TechAuction.Models.DatabaseRepositories;
 using H2TechAuction.Models.UserModels;
+using H2TechAuction.Models.UserModels.Generators;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
@@ -40,8 +41,8 @@ public class LoginScreenViewModel : ViewModelBase
 
     public void Login()
     {
-        //UserRepository repo = new();
-        //var userExists = repo.ValidateUser(Username, Password);
+        UserRepository repo = new();
+        var validateUser = repo.ValidateUser(Username, PasswordHash.HashPassword(Password));
 
         //temp user
         var user = new PrivateUser("2307066699");
