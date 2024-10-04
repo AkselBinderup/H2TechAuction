@@ -16,9 +16,10 @@
 			<TextBlock Text="Your auctions" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
 			<DataGrid
 				ItemsSource="{Binding YourAuctions}"
-				AutoGenerateColumns="True"
+				AutoGenerateColumns="False"
 				HeadersVisibility="Column"
 				Height="200"
+				SelectionChanged="YourAuctionsSelectionChanged"
 				SelectionMode="Single"
 				IsReadOnly="True">
 				<DataGrid.Columns>
@@ -36,9 +37,10 @@
 			<TextBlock Text="Current Auctions" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
 			<DataGrid
 				ItemsSource="{Binding CurrentAuctions}"
-				AutoGenerateColumns ="True"
+				AutoGenerateColumns ="False"
 				HeadersVisibility="Column"
 				Height="200"
+				SelectionChanged="CurrentAuctionsSelectionChanged"
 				SelectionMode="Single"
 				IsReadOnly="True">
 				<DataGrid.Columns>
@@ -59,10 +61,13 @@
 					Margin="10">
 			<Button Content="+ Set For Sale!"
 					Background="#4CAF50"
+					Click="SetForSale_click"
 					Foreground="White"/>
 			<Button Content="User profile"
+					Click="OpenUserProfile_click"
 					HorizontalAlignment="Stretch"/>
 			<Button Content="Bid history"
+					Click="OpenBidHistory_click"
 					HorizontalAlignment="Stretch"/>
 
 		</StackPanel>

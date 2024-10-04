@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.DatabaseRepositories;
-public class AuctionRepository : CommonDBModule, IDBRepository<Auction>
+public class AuctionRepository : CommonDBModule<Action>, IDBRepository<Auction>
 {
     public bool Delete(int Id)
     {
@@ -19,13 +19,22 @@ public class AuctionRepository : CommonDBModule, IDBRepository<Auction>
     {
         return ExecuteCommand($"EXEC CreateAuction({Input.Vehicle.Id}, {User.UserId}, {Input.MinimumAmount})");
     }
+    public List<Auction> ReadAll()
+    {
+        //reads all
+        return null; 
 
+    }
     public bool Update(Auction Input, int id)
     {
         return ExecuteCommand($"EXEC UpdateAuction({id}, {Input.MinimumAmount}");
     }
 
     List<Auction> IDBRepository<Auction>.Read()
+    {
+        throw new NotImplementedException();
+    }
+    public List<CurrentBidModel> ReadBidHistory(User user)
     {
         throw new NotImplementedException();
     }

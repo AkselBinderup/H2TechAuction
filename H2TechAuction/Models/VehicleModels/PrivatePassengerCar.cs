@@ -1,5 +1,5 @@
 ﻿namespace H2TechAuction.Models.VehicleModels;
-public class PrivatePassengerCar
+public class PrivatePassengerCar : PassengerCar
 {
     public bool IsofixMount { get; set; }
     //DB

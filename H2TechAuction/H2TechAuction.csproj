@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
-    <Folder Include="Images\" />
+    <None Remove="Images\VehicleNotAvailable.jpg" />
     <Folder Include="SQL\Triggers\" />
   </ItemGroup>
 
@@ -27,5 +27,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="ReactiveUI" Version="20.1.63" />
     <PackageReference Include="System.Reactive" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Images\VehicleNotAvailable.jpg" />
   </ItemGroup>
 </Project>

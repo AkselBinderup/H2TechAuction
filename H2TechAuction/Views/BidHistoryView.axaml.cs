@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using H2TechAuction.ViewModels;
 
@@ -12,4 +13,7 @@ public partial class BidHistoryView : UserControl
         InitializeComponent();
         DataContext = new BidHistoryViewModel();
     }
+    private void ReturnToHome_click(object sender, RoutedEventArgs e) =>
+        MainWindowViewModel.Instance?.SetViewModel(new HomeScreenViewModel());
+
 }

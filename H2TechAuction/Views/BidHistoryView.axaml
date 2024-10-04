@@ -17,16 +17,17 @@
 					  ItemsSource="{Binding BidHistory}" 
 					  AutoGenerateColumns="True" 
 					  Margin="0,0,0,20" 
+					  IsVisible="True"
 					  IsReadOnly="True">
-				<DataGrid.Columns>
-					<DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" />
+				<!--<DataGrid.Columns>
+					--><!--<DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" />
 					<DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="100" />
 					<DataGridTextColumn Header="Bid" Binding="{Binding Bid}" Width="100" />
-					<DataGridTextColumn Header="FinalBid" Binding="{Binding FinalBid}" Width="100" />
-				</DataGrid.Columns>
+					<DataGridTextColumn Header="FinalBid" Binding="{Binding FinalBid}" Width="100" />--><!--
+				</DataGrid.Columns>-->
 			</DataGrid>
 
-			<Button Content="Back" HorizontalAlignment="Left" Width="80"/>
+			<Button Content="Back" Click="ReturnToHome_click" HorizontalAlignment="Left" Width="80"/>
 		</StackPanel>
 	</Grid>
 </UserControl>

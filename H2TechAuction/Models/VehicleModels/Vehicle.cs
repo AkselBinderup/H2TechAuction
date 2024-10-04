@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.FileIO;
+﻿using H2TechAuction.Models.UserModels.Generators;
+using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
@@ -21,55 +22,8 @@ public abstract class Vehicle : Base
     public int KilometerLiter { get; set; }
     public string? Fuel { get; set; }
     public EnergyClass EnergyClass { get; set; }
-
     public override string ToString()
     {
         return $"{Name} ({ModelYear})";
-    }
-    public string GetEnergyClass()
-    {
-        if(ModelYear < 2010)
-        {
-            if ("electric" == Fuel || "hydrogen" == Fuel)
-            {
-                return "A";
-            }
-            else if (Fuel == "diesel")
-            {
-                if (KilometerLiter >= 23) return "A";
-                else if (KilometerLiter >= 18) return "B";
-                else if (KilometerLiter >= 13) return "C";
-                else return "D";
-            }
-            else if (Fuel == "petrol")
-            {
-                if (KilometerLiter >= 18) return "A";
-                else if (KilometerLiter >= 14) return "B";
-                else if (KilometerLiter >= 10) return "C";
-                else return "D";
-            }
-            else
-            {
-                if (Fuel == "electric" || Fuel == "hydrogen")
-                {
-                    return "A";
-                }
-                else if (Fuel == "diesel")
-                {
-                    if (KilometerLiter >= 25) return "A";
-                    else if (KilometerLiter  >= 20) return "B";
-                    else if (KilometerLiter >= 15) return "C";
-                    else return "D";
-                }
-                else if (Fuel == "petrol")
-                {
-                    if (KilometerLiter >= 20) return "A";
-                    else if (KilometerLiter >= 16) return "B";
-                    else if (KilometerLiter >= 12) return "C";
-                    else return "D";
-                }
-            }
-        }
-        return "unknown";
     }
 }

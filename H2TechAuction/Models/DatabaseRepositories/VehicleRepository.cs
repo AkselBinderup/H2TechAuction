@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.DatabaseRepositories;
-public class VehicleRepository : IDBRepository<Vehicle>
+public class VehicleRepository : CommonDBModule<Vehicle>, IDBRepository<Vehicle>
 {
     public bool Create(Vehicle Input)
     {
@@ -19,7 +19,7 @@ public class VehicleRepository : IDBRepository<Vehicle>
         throw new NotImplementedException();
     }
 
-    public List<Vehicle> Read()
+    public Vehicle Read()
     {
         throw new NotImplementedException();
     }

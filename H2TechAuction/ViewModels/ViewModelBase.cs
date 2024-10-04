@@ -2,10 +2,8 @@
 using H2TechAuction.Models;
 using ReactiveUI;
 
-namespace H2TechAuction.ViewModels
+namespace H2TechAuction.ViewModels;
+public class ViewModelBase : ReactiveObject
 {
-    public class ViewModelBase : ReactiveObject
-    {
 
-    }
 }
