@@ -1,6 +1,10 @@
 ﻿USE H2TechAuction;
 
-GO;
+GO
+
+DROP PROCEDURE IF EXISTS DeleteAuctions;
+
+GO
 
 CREATE PROCEDURE DeleteAuctions
 AS
@@ -22,4 +26,4 @@ BEGIN
 END;
 
 
---Sat til at køre hver uge ved midnat
+--Sat til at køre hver dag ved midnat

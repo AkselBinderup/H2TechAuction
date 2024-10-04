@@ -1,6 +1,10 @@
-﻿DROP PROCEDURE IF EXISTS UpdateAuction
+﻿USE H2TechAuction
 
-GO;
+GO
+
+DROP PROCEDURE IF EXISTS UpdateAuction
+
+GO
 
 CREATE PROCEDURE UpdateAuction
 (
