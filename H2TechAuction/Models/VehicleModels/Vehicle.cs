@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.VehicleModels;
 
-public abstract class Vehicle
+public abstract class Vehicle : Base
 {
-    public int Id { get; set; }
+    public int VehicleId { get; set; }
     public string? Name { get; set; }
     public int Kilometers { get; set; }
     public int ModelYear { get; set; }

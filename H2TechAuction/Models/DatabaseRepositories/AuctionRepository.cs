@@ -12,20 +12,21 @@ public class AuctionRepository : CommonDBModule, IDBRepository<Auction>
 {
     public bool Delete(int Id)
     {
-        throw new NotImplementedException();
+        return ExecuteCommand($"EXEC SetAuctionInactive({Id})");
     }
 
     public bool Create(Auction Input)
     {
-        return ExecuteCommand($"EXEC CreateAuction({Input.Vehicle.Id}, {User.Id}, {Input.MinimumAmount})");
-    }
-    public Auction Read()
-    {
-        throw new NotImplementedException();
+        return ExecuteCommand($"EXEC CreateAuction({Input.Vehicle.Id}, {User.UserId}, {Input.MinimumAmount})");
     }
 
     public bool Update(Auction Input, int id)
     {
-        return ExecuteCommand($"EXEC UpdateAuction({Input.AuctionId}, ");
+        return ExecuteCommand($"EXEC UpdateAuction({id}, {Input.MinimumAmount}");
+    }
+
+    List<Auction> IDBRepository<Auction>.Read()
+    {
+        throw new NotImplementedException();
     }
 }

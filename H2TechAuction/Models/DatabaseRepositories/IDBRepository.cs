@@ -11,5 +11,5 @@ public interface IDBRepository<T>
     bool Create(T Input);
     bool Update(T Input, int id);
     bool Delete(int Id);
-    T Read();
+    List<T> Read();
 }

@@ -1,4 +1,5 @@
 ﻿using H2TechAuction.Models.AuctionModels;
+using H2TechAuction.Models.VehicleModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,24 +7,24 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.DatabaseRepositories;
-public class VehicleRepository : IDBRepository<Auction>
+public class VehicleRepository : IDBRepository<Vehicle>
 {
+    public bool Create(Vehicle Input)
+    {
+        throw new NotImplementedException();
+    }
+
     public bool Delete(int Id)
     {
         throw new NotImplementedException();
     }
 
-    public bool Create(Auction Input)
+    public List<Vehicle> Read()
     {
         throw new NotImplementedException();
     }
 
-    public bool Update(Auction Input, int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Auction Read()
+    public bool Update(Vehicle Input, int id)
     {
         throw new NotImplementedException();
     }
