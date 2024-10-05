@@ -41,5 +41,6 @@ SET @HeavyVehicleId = SCOPE_IDENTITY()
 
 INSERT INTO Bus (SeatingCapacity, SleepingCapacity, ToiletAvailable) VALUES (@SeatingCapacity, @SleepingCapacity, @ToiletAvailable)
 
+SELECT @VehicleId AS VehicleId;
 
 END;

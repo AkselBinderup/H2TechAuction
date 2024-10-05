@@ -8,6 +8,7 @@ using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Reactive;
 
 namespace H2TechAuction.ViewModels;
@@ -26,22 +27,35 @@ public class SetForSaleViewModel : ViewModelBase
     private double _engineSize;
     private int _kilometerLiter;
     private bool _towBar;
-    private VehicleTypes _selectedVehiclType;
+    private VehicleTypes _selectedVehicleType;
     private Vehicle? _selectedVehicle;
     private int _fuelCapacity;
-    private DateTime _closeAuctionDate;
+    private DateTime? _closeAuctionDate;
+    private List<int> _yearItems;
 
-    public DateTime CloseAuctionDate
+    public SetForSaleViewModel()
+    {
+        YearItems = Enumerable.Range(1886, DateTime.Now.Year - 1886 + 1).ToList();
+        SelectedVehicleType = VehicleTypes.PrivatePassengerCar;
+    }
+
+    public List<int> YearItems
+    {
+        get => _yearItems;
+        set => this.RaiseAndSetIfChanged(ref _yearItems, value);
+    }
+    public DateTime? CloseAuctionDate
     {
         get => _closeAuctionDate;
         set => this.RaiseAndSetIfChanged(ref _closeAuctionDate, value);
     }
     public VehicleTypes SelectedVehicleType
     {
-        get => _selectedVehiclType;
+        get => _selectedVehicleType;       
         set
         {
-            this.RaiseAndSetIfChanged(ref _selectedVehiclType, value);
+            Debug.WriteLine($"Setting SelectedVehicleType: {value}");
+            this.RaiseAndSetIfChanged(ref _selectedVehicleType, value);
             UpdateSelectedVehicle();
         }
     }
@@ -50,34 +64,35 @@ public class SetForSaleViewModel : ViewModelBase
         get => _selectedVehicle;
         private set => this.RaiseAndSetIfChanged(ref _selectedVehicle, value);
     }
-    public List<string> VehicleOptions { get; } =
-    [
-        VehicleTypes.PrivatePassengerCar.AddSpacesEnum(),
-        VehicleTypes.ProfessionalPassengerCar.AddSpacesEnum(),
-        VehicleTypes.Bus.AddSpacesEnum(),
-        VehicleTypes.Truck.AddSpacesEnum()
-    ];
+    public List<string> VehicleOptions { get; } = Enum.GetValues(typeof(VehicleTypes))
+    .Cast<VehicleTypes>()
+    .Select(v => v.AddSpacesEnum())
+    .ToList();
     private void UpdateSelectedVehicle()
     {
-        switch (SelectedVehicleType)
+        if (SelectedVehicleType == VehicleTypes.PrivatePassengerCar)
         {
-            case VehicleTypes.PrivatePassengerCar:
-                SelectedVehicle = new PrivatePassengerCar(true);
-                break;
-            case VehicleTypes.ProfessionalPassengerCar:
-                SelectedVehicle = new ProfessionalPassengerCar();
-                break;
-            case VehicleTypes.Bus:
-                SelectedVehicle = new Bus();
-                break;
-            case VehicleTypes.Truck:
-                SelectedVehicle = new Truck();
-                break;
-            default:
-                SelectedVehicle = null;
-                break;
+            SelectedVehicle = new PrivatePassengerCar(true);
         }
+        else if (SelectedVehicleType == VehicleTypes.ProfessionalPassengerCar)
+        {
+            SelectedVehicle = new ProfessionalPassengerCar();
+        }
+        else if (SelectedVehicleType == VehicleTypes.Bus)
+        {
+            SelectedVehicle = new Bus();
+        }
+        else if (SelectedVehicleType == VehicleTypes.Truck)
+        {
+            SelectedVehicle = new Truck();
+        }
+        else
+        {
+            SelectedVehicle = null;
+        }
+        Debug.WriteLine($"SelectedVehicle updated: {SelectedVehicle?.GetType().Name}");
     }
+
     public string? Name
     {
         get => _name;
@@ -169,8 +184,9 @@ public class SetForSaleViewModel : ViewModelBase
             SelectedVehicle.KilometerLiter = KilometerLiter;
             SelectedVehicle.EnergyClass = energy.DetermineClass(Year, Vehicle, KilometerLiter);
             SelectedVehicle.RegistrationNumber = RegNr;
+            int Id = vehicleRepo.CreateReturnId(SelectedVehicle);
+            SelectedVehicle.VehicleId = Id;
             auctionRepository.Create(new Auction(SelectedVehicle, LoginScreenViewModel.User, StartingBid));
-            vehicleRepo.Create(SelectedVehicle);
         }
         //ændr private user til brugerens status please::: TODO TODOOO
         Debug.WriteLine($"Selling car: {Name}, Mileage: {Mileage}, RegNr: {RegNr}, Starting Bid: {StartingBid}");

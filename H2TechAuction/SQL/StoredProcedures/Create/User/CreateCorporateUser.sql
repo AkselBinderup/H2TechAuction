@@ -25,7 +25,7 @@ EXEC CreateUser @Username, @Password, @CorporateUser, @ZipCode, @Balance
 DECLARE @UserId INT
 SET @UserId = Scope_Identity()
 
-INSERT INTO CorporateUsers (UserId, Credit, EAN) VALUES (@UserId, @Credit, @EAN)
+INSERT INTO CorporateUser (UserId, Credit, EAN) VALUES (@UserId, @Credit, @EAN)
 
 END;
 

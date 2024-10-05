@@ -10,8 +10,12 @@ namespace H2TechAuction.Converters;
 
 public static class EnumToFriendlyString
 {
-    public static string AddSpacesEnum(this VehicleTypes vehicleType)
+    public static string AddSpacesEnum(this Enum enumValue)
     {
-        return Regex.Replace(vehicleType.ToString(), "([a-z])([A-Z])", "$1 $2");
+        if (enumValue == null) return string.Empty;
+
+        var enumName = enumValue.ToString();
+        // Add spaces before capital letters
+        return System.Text.RegularExpressions.Regex.Replace(enumName, "(\\B[A-Z])", " $1");
     }
 }

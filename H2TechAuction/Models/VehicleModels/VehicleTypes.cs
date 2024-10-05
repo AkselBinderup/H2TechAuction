@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace H2TechAuction.Models.VehicleModels;
 
-public enum VehicleTypes
-{
-    PrivatePassengerCar,
-    ProfessionalPassengerCar,
-    Bus,
-    Truck
-}
-
+    public enum VehicleTypes
+    {
+        PrivatePassengerCar,
+        ProfessionalPassengerCar,
+        Bus,
+        Truck
+    }

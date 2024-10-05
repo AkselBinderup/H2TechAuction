@@ -43,4 +43,6 @@ SET @PersonalCarId = SCOPE_IDENTITY()
 
 INSERT INTO PrivatePersonalCar (IsofixMounts, CarId) VALUES (@IsofixMounts, @PersonalCarId)
 
+SELECT @VehicleId AS VehicleId;
+
 END;

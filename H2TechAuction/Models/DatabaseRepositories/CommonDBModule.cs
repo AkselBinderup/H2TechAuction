@@ -32,6 +32,21 @@ public partial class CommonDBModule <T>
         conn.Close();
         return res;
     }
+    protected int ExecuteCommandReturnId(string command)
+    {
+        int newId = 0;
+        using var conn = GetConnection();
+        
+        var sqlCommand = new SqlCommand(command, conn);
+        object result = sqlCommand.ExecuteScalar(); 
+
+        if (result != null && int.TryParse(result.ToString(), out newId))
+        {
+            return newId;
+        }
+        
+        return newId; 
+    }
     protected bool ExecuteReaderWithParametersAsync(SqlCommand command, string field, string comparisonValue)
     {
         using var conn = GetConnection();

@@ -78,9 +78,6 @@ CREATE TABLE CorporateUser (
 	EAN	NVARCHAR(50),
 	FOREIGN KEY (UserId) REFERENCES Users(Id));
 
-
-
-
 CREATE TABLE PersonalCar (
 		Id Int PRIMARY KEY IDENTITY(1,1),
 		TrunkWidth Decimal,

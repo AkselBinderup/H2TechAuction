@@ -19,7 +19,7 @@ public class AuctionRepository : CommonDBModule<Auction>, IDBRepository<Auction>
     public bool Create(Auction Input)
     {
         //private or corporate userid
-        return ExecuteCommand($"EXEC CreateAuction({Input.Id}, {Input.Seller.Id}, {Input.AskingPrice})");
+        return ExecuteCommand($"EXEC CreateAuction {Input.Vehicle.VehicleId}, {Input.Seller.Id}, {Input.AskingPrice}");
     }
     public List<Auction> ReadAll(int Id)
     {

@@ -39,5 +39,6 @@ SET @HeavyVehicleId = SCOPE_IDENTITY()
 
 INSERT INTO Truck (LoadCapacity, HeavyVehicleId) VALUES (@LoadCapacity, @HeavyVehicleId)
 
+SELECT @VehicleId AS VehicleId;
 
 END;

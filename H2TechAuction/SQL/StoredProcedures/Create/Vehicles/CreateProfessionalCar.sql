@@ -48,4 +48,6 @@ SET @PersonalCarId = SCOPE_IDENTITY()
 INSERT INTO ProfessionalCar (RollCage, FireExtinguisher, RacingHarness, RacingSeat, LoadCapacity, CarId) 
 VALUES (@RollCage, @FireExtinguisher, @RacingHarness, @RacingSeat, @LoadCapacity, @PersonalCarId)
 
+SELECT @VehicleId AS VehicleId;
+
 END;
