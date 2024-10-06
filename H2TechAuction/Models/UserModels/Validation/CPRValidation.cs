@@ -45,7 +45,7 @@ public class CPRValidation
         {
             return IsValidMod11(cpr);
         }
-
+         
         return true;
     }
     private static bool IsValidMod11(string cpr)

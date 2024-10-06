@@ -10,7 +10,7 @@ namespace H2TechAuction.Models.AuctionModels;
 
 public class Auction
 {
-    public int Id { get; set; }
+    public int AuctionId { get; set; }
     public Vehicle? Vehicle { get; set; } 
     public int VehicleId { get; set; }
     public User? Seller { get; set; } 

@@ -36,10 +36,8 @@ public class HomeScreenViewModel : ViewModelBase
         AuctionRepository auctionRepo = new();
         var auctionData = auctionRepo.ReadAll(0);
         VehicleRepository vehicleRepo = new();
-
-
-        //DBTODO
-
+        
+        
         var aucData = new ObservableCollection<VisualAuction>();
         var yourData = new ObservableCollection<VisualAuction>();
         foreach (var auction in auctionData)
@@ -51,8 +49,8 @@ public class HomeScreenViewModel : ViewModelBase
                 Name = vehData.Name,
                 Year = vehData.ModelYear.ToString(),
                 CurrentBid = bid.ToString(),
-                SellerId = auction.SellerId
-
+                SellerId = auction.SellerId,
+                VehicleId = auction.VehicleId
             };
 
             if(auction.SellerId == LoginScreenViewModel.User.Id)

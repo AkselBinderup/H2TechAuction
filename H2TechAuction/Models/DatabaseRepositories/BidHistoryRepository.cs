@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Splat.ModeDetection;
+using H2TechAuction.Views;
+using H2TechAuction.ViewModels;
 
 namespace H2TechAuction.Models.DatabaseRepositories;
 public class BidHistoryRepository : CommonDBModule<CurrentBidModel>, IDBRepository<CurrentBidModel>
@@ -20,7 +22,7 @@ public class BidHistoryRepository : CommonDBModule<CurrentBidModel>, IDBReposito
 
     public bool Create(CurrentBidModel Input)
     {
-        return ExecuteCommand($"EXEC CreateBid({Input.AuctionId}, {"User.UserId"}, {Input.CurrentBid})");
+        return ExecuteCommand($"EXEC CreateBid {Input.AuctionId}, {LoginScreenViewModel.User.Id}, {Input.CurrentBid}");
     }
 
     public bool Update(CurrentBidModel Input, int id)

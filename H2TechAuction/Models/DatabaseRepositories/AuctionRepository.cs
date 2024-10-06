@@ -34,6 +34,7 @@ public class AuctionRepository : CommonDBModule<Auction>, IDBRepository<Auction>
 
     public Auction Read(string obj, string obj2)
     {
-        throw new NotImplementedException();
+        SqlCommand cmd = new SqlCommand($"EXEC GetActiveAuctions @VehicleId = {obj}");
+        return ExecuteReader<Auction>(cmd).First();
     }
 }

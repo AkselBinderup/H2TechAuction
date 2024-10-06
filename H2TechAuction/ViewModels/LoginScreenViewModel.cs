@@ -52,8 +52,6 @@ public class LoginScreenViewModel : ViewModelBase
             var validateUser = repo.ValidateUser(Username, PasswordHash.HashPassword(Password));
 
             User = repo.Read(Username, PasswordHash.HashPassword(Password));
-            //temp user
-
 
             if (validateUser)
             {

@@ -57,6 +57,7 @@
 					Background="#4CAF50"
 					Foreground="White"
 					Content="Accept bid"
+					 Click="AcceptedBid"
 					 IsVisible="{Binding DetermineAcceptBTNVisibility}"
 					 />
 			<Button Grid.Column="0"
@@ -65,8 +66,21 @@
 					Background="#4CAF50"
 					Foreground="White"
 					Content="Place Bid"
+					Click="PlacedBid"
 					IsVisible="{Binding DeterminePlaceBTNVisibility}"/>
-
+			<TextBox Watermark="Bid Amount"
+					 HorizontalAlignment="Right"
+					 Text="{Binding BidAmount, Mode=TwoWay}"
+					 IsVisible="{Binding BAIsVisible}"
+					 />
+			<Button Grid.Column="0"
+					Grid.Row="4"
+					HorizontalAlignment="Right"
+					Background="#4CAF50"
+					Foreground="White"
+					Content="Confirm"
+					Click="Confirm"
+					IsVisible="{Binding DetermineConfirmVisibility}"/>
 
 		</StackPanel>
 		<!--<Grid Grid.Column="1" 

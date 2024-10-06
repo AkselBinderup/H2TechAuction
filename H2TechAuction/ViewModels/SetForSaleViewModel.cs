@@ -170,25 +170,81 @@ public class SetForSaleViewModel : ViewModelBase
 
     public void SellCarAction()
     {
-        VehicleRepository vehicleRepo = new();
-        AuctionRepository auctionRepository = new();
-        GetEnergyClass energy = new();
-        if (SelectedVehicle != null)
+        if (!ValidateInputs())
         {
-            SelectedVehicle.Name = Name;
-            SelectedVehicle.Kilometers = Mileage; 
-            SelectedVehicle.ModelYear = Year;
-            SelectedVehicle.TowingHitch = TowBar;
-            SelectedVehicle.EngineSize = EngineSize;
-            SelectedVehicle.FuelCapacity = FuelCapacity;  
-            SelectedVehicle.KilometerLiter = KilometerLiter;
-            SelectedVehicle.EnergyClass = energy.DetermineClass(Year, Vehicle, KilometerLiter);
-            SelectedVehicle.RegistrationNumber = RegNr;
-            int Id = vehicleRepo.CreateReturnId(SelectedVehicle);
-            SelectedVehicle.VehicleId = Id;
-            auctionRepository.Create(new Auction(SelectedVehicle, LoginScreenViewModel.User, StartingBid));
+            Debug.WriteLine("Error: Invalid input detected. Please check all fields and try again.");
+            return;
         }
-        //ændr private user til brugerens status please::: TODO TODOOO
-        Debug.WriteLine($"Selling car: {Name}, Mileage: {Mileage}, RegNr: {RegNr}, Starting Bid: {StartingBid}");
+        try
+        {
+            VehicleRepository vehicleRepo = new();
+            AuctionRepository auctionRepository = new();
+            GetEnergyClass energy = new();
+            if (SelectedVehicle != null)
+            {
+                SelectedVehicle.Name = Name;
+                SelectedVehicle.Kilometers = Mileage;
+                SelectedVehicle.ModelYear = Year;
+                SelectedVehicle.TowingHitch = TowBar;
+                SelectedVehicle.EngineSize = EngineSize;
+                SelectedVehicle.FuelCapacity = FuelCapacity;
+                SelectedVehicle.KilometerLiter = KilometerLiter;
+                SelectedVehicle.EnergyClass = energy.DetermineClass(Year, Vehicle, KilometerLiter);
+                SelectedVehicle.RegistrationNumber = RegNr;
+                int Id = vehicleRepo.CreateReturnId(SelectedVehicle);
+                SelectedVehicle.VehicleId = Id;
+                auctionRepository.Create(new Auction(SelectedVehicle, LoginScreenViewModel.User, StartingBid));
+            }
+            Debug.WriteLine($"Selling car: {Name}, Mileage: {Mileage}, RegNr: {RegNr}, Starting Bid: {StartingBid}");
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Error: {ex.Message}");
+        }
+        
+    }
+    private bool ValidateInputs()
+    {
+        if (string.IsNullOrWhiteSpace(Name))
+        {
+            Debug.WriteLine("Error: Name cannot be null or empty.");
+            return false;
+        }
+        if (Mileage <= 0)
+        {
+            Debug.WriteLine("Error: Mileage must be a positive integer.");
+            return false;
+        }
+        if (string.IsNullOrWhiteSpace(RegNr))
+        {
+            Debug.WriteLine("Error: Registration Number cannot be null or empty.");
+            return false;
+        }
+        if (Year < 1886 || Year > DateTime.Now.Year)
+        {
+            Debug.WriteLine("Error: Year must be between 1886 and the current year.");
+            return false;
+        }
+        if (StartingBid <= 0)
+        {
+            Debug.WriteLine("Error: Starting Bid must be a positive value.");
+            return false;
+        }
+        if (string.IsNullOrWhiteSpace(Vehicle))
+        {
+            Debug.WriteLine("Error: Vehicle cannot be null or empty.");
+            return false;
+        }
+        if (_height <= 0 || _length <= 0 || _weight <= 0 || _engineSize <= 0 || _fuelCapacity <= 0)
+        {
+            Debug.WriteLine("Error: Vehicle dimensions, engine size, and fuel capacity must be positive values.");
+            return false;
+        }
+        if (SelectedVehicle == null)
+        {
+            Debug.WriteLine("Error: SelectedVehicle cannot be null.");
+            return false;
+        }
+        return true;
     }
 }
