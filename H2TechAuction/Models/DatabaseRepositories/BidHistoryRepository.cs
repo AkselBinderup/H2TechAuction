@@ -37,7 +37,7 @@ public class BidHistoryRepository : CommonDBModule<CurrentBidModel>, IDBReposito
 
     public List<CurrentBidModel> ReadAll(int Id)
     {
-        SqlCommand cmd = new ($"EXEC GetUserBidHistory @UserId = 1");
+        SqlCommand cmd = new ($"EXEC GetUserBidHistory @UserId = {Id}");
         return ExecuteReader<CurrentBidModel>(cmd);
     }
 }

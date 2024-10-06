@@ -16,10 +16,11 @@ BEGIN;
 SET NOCOUNT ON
 
 	SELECT
-	bh.Bid,
+	bh.Bid AS CurrentBid,
 	u.Username,
 	v.Name,
-	v.ModelYear
+	v.ModelYear,
+	a.Id AS AuctionId 
 	
 	FROM BidHistory AS bh
 	LEFT JOIN Users AS u ON bh.UserId = u.Id

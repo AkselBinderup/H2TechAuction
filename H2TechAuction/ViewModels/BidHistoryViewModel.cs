@@ -19,20 +19,9 @@ public class BidHistoryViewModel : ViewModelBase
     }
     public BidHistoryViewModel()
     {
-        //AuctionRepository repo = new();
+        BidHistoryRepository repo = new();
 
-        //DBTODO
-        
-
-        //var bidHistory = repo.ReadBidHistory(new PrivateUser(""));
-        //BidHistory = new ObservableCollection<CurrentBidModel>(bidHistory);
-        
-        BidHistory =
-        [
-            new() { Name = "Ford Escort", Year = "1983", CurrentBid = "3.000", FinalBid = "3.500" },
-            new() { Name = "Tesla Model 3", Year = "2016", CurrentBid = "800.000", FinalBid = "WON" },
-            new() { Name = "Scania R 730 V8", Year = "2019", CurrentBid = "-", FinalBid = "-" },
-            new() { Name = "Skoda Octavia", Year = "2008", CurrentBid = "-", FinalBid = "-" }
-        ];
+        var bidHistory = repo.ReadAll(LoginScreenViewModel.User.Id);
+        BidHistory = new ObservableCollection<CurrentBidModel>(bidHistory);
     }
 }
