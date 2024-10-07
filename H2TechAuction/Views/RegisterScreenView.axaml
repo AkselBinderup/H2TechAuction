@@ -18,8 +18,10 @@
 		<TextBox Watermark="Username"
 				 Text="{Binding Username}"/>
 		<TextBox Watermark="Password"
+				 PasswordChar="*"
 				 Text="{Binding Password}"/>
 		<TextBox Watermark="Password again"
+				 PasswordChar="*"
 				 Text="{Binding PasswordRepeat}"/>
 
 		<!-- Error message TextBlock -->

@@ -19,6 +19,7 @@
 		<TextBox Watermark="Username"
 				 Text="{Binding Username}"/>
 		<TextBox Watermark="Password"
+				 PasswordChar="*"
 				 Text="{Binding Password}"/>
 		<Grid ColumnDefinitions="*,*">
 			<Label Content="Not Registered?"/>
