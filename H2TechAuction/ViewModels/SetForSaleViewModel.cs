@@ -230,11 +230,6 @@ public class SetForSaleViewModel : ViewModelBase
             Debug.WriteLine("Error: Starting Bid must be a positive value.");
             return false;
         }
-        if (string.IsNullOrWhiteSpace(Vehicle))
-        {
-            Debug.WriteLine("Error: Vehicle cannot be null or empty.");
-            return false;
-        }
         if (_height <= 0 || _length <= 0 || _weight <= 0 || _engineSize <= 0 || _fuelCapacity <= 0)
         {
             Debug.WriteLine("Error: Vehicle dimensions, engine size, and fuel capacity must be positive values.");
